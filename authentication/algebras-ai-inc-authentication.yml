@@ -1,0 +1,15 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algebras-ai-inc-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: APIKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-Api-Key
+  sources:
+  - openapi/algebras-ai-inc-openapi-original.json

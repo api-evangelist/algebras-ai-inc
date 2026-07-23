@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Common API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Common
+paths:
+  /health:
+    get:
+      tags:
+      - Common
+      summary: Health check endpoint
+      description: Returns the health status of the API. This endpoint is publicly accessible and does not require authentication.
+      responses:
+        '200':
+          description: API health information
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    description: Status of the request
+                    enum:
+                    - ok
+                    - error
+                    example: ok
+                  timestamp:
+                    type: string
+                    description: Time of the health check
+                    format: date-time
+                    example: '2025-01-12T22:31:48.856Z'
+                  data:
+                    type: object
+                    required:
+                    - health
+                    - version
+                    properties:
+                      health:
+                        type: string
+                        description: Health of the system
+                        enum:
+                        - up
+                        - down
+                        example: up
+                      version:
+                        type: string
+                        description: System version
+                        example: 1.0.0
+components:
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

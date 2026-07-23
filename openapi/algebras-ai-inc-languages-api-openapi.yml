@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Languages API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Languages
+paths:
+  /translation/languages:
+    get:
+      tags:
+      - Languages
+      summary: Languages endpoint
+      description: Returns the list of supported languages
+      responses:
+        '200':
+          description: List of languages
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    description: Status of the request
+                    enum:
+                    - ok
+                    - error
+                    example: ok
+                  timestamp:
+                    type: string
+                    description: Time of the health check
+                    format: date-time
+                    example: '2025-01-12T22:31:48.856Z'
+                  data:
+                    type: array
+                    description: List of supported languages
+                    items:
+                      $ref: '#/components/schemas/Language'
+  /translation/languages/detect:
+    post:
+      tags:
+      - Languages
+      summary: Detect language of the provided text
+      description: Automatically detects the language of the provided text content.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: Text whose language needs to be detected
+                  example: Bonjour tout le monde
+              required:
+              - text
+      responses:
+        '200':
+          description: Language detected successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: string
+                    description: ISO 639-1 language code of the detected language
+                    example: fr
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+                      issues:
+                        type: array
+                        items:
+                          type: string
+                        description: Validation error messages
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Authentication error message
+        '429':
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Rate limit exceeded
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+components:
+  schemas:
+    Language:
+      type: object
+      required:
+      - language
+      - name
+      properties:
+        language:
+          type: string
+          description: Language code
+          example: en
+        name:
+          type: string
+          description: Name of the language
+          example: English
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

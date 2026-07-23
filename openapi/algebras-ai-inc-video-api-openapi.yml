@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Video API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Video
+paths:
+  /video/translate:
+    post:
+      summary: Start translation of an uploaded video file
+      description: 'Starts the video translation process for a video that was previously uploaded to storage. The video must be in UPLOADED or READY status. This will extract audio, transcribe it, translate the transcription, synthesize new audio, and create the final translated video.
+
+        '
+      tags:
+      - Video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - videoId
+              - targetLanguage
+              properties:
+                videoId:
+                  type: string
+                  example: cmgasbs4v0003xodafdivu1bc
+                  description: Video record ID from upload-url response
+                targetLanguage:
+                  type: string
+                  example: ru-RU
+                  description: Target language code for translation
+                voicePreference:
+                  type: string
+                  enum:
+                  - male
+                  - female
+                  description: Optional voice preference for audio synthesis
+                numSpeakers:
+                  type: integer
+                  minimum: 1
+                  maximum: 32
+                  description: Optional number of speakers for better transcription accuracy
+      responses:
+        '200':
+          description: Video translation started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      taskId:
+                        type: string
+                        example: video-translation-task-123
+                      status:
+                        type: string
+                        example: started
+        '400':
+          description: Invalid input or video not found
+        '401':
+          description: Unauthorized (invalid API key)
+        '500':
+          description: Internal server error
+  /video/status/update:
+    post:
+      summary: Update video upload status
+      description: 'Updates the status of a video after upload completion or failure. Used to mark video as UPLOADED after successful upload to storage bucket, or FAILED if upload failed. Only UPLOADED and FAILED statuses can be set through this endpoint.
+
+        '
+      tags:
+      - Video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - videoId
+              - status
+              properties:
+                videoId:
+                  type: string
+                  example: cmgasbs4v0003xodafdivu1bc
+                  description: Video record ID from upload-url response
+                status:
+                  type: string
+                  enum:
+                  - UPLOADED
+                  - FAILED
+                  example: UPLOADED
+                  description: New status for the video
+      responses:
+        '200':
+          description: Video status updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      videoId:
+                        type: string
+                        example: cmgasbs4v0003xodafdivu1bc
+                      status:
+                        type: string
+                        example: UPLOADED
+                      updatedAt:
+                        type: string
+                        format: date-time
+        '400':
+          description: Invalid input or video not found
+        '401':
+          description: Unauthorized (invalid API key)
+        '500':
+          description: Internal server error
+components:
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

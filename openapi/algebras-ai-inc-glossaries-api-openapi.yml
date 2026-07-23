@@ -1,0 +1,869 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Glossaries API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Glossaries
+paths:
+  /translation/glossaries:
+    get:
+      tags:
+      - Glossaries
+      summary: List all glossaries
+      description: Retrieves a paginated list of all glossaries for the organization
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+        description: Page number for pagination
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 50
+        description: Number of items per page
+      responses:
+        '200':
+          description: Glossaries retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Glossary'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      limit:
+                        type: integer
+                      total:
+                        type: integer
+                      totalPages:
+                        type: integer
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - Glossaries
+      summary: Create a new glossary
+      description: Creates a new glossary with the specified name and languages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - languages
+              properties:
+                name:
+                  type: string
+                  description: Name of the glossary
+                  example: Technical Terms
+                languages:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of language codes
+                  example:
+                  - en
+                  - es
+                  - fr
+      responses:
+        '200':
+          description: Glossary created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/Glossary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/glossaries/{id}:
+    get:
+      tags:
+      - Glossaries
+      summary: Get glossary by ID
+      description: Retrieves a specific glossary with all its terms and definitions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      responses:
+        '200':
+          description: Glossary retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/Glossary'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+    put:
+      tags:
+      - Glossaries
+      summary: Update glossary
+      description: Updates a glossary's name and languages
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: New name for the glossary
+                  example: Updated Technical Terms
+                languages:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of language codes
+                  example:
+                  - en
+                  - es
+                  - fr
+                  - de
+      responses:
+        '200':
+          description: Glossary updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/Glossary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+      - Glossaries
+      summary: Delete glossary
+      description: Deletes a glossary and all its terms and definitions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      responses:
+        '200':
+          description: Glossary deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ID of the deleted glossary
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+  /translation/glossaries/{id}/terms:
+    get:
+      tags:
+      - Glossaries
+      summary: List terms for glossary
+      description: Retrieves a paginated list of all terms for a specific glossary
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+        description: Page number for pagination
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 50
+        description: Number of items per page
+      responses:
+        '200':
+          description: Terms retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GlossaryTerm'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      limit:
+                        type: integer
+                      total:
+                        type: integer
+                      totalPages:
+                        type: integer
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - Glossaries
+      summary: Create single term with definitions
+      description: Creates a single term with definitions for multiple languages. All definitions belong to the same GlossaryTerm instance.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - definitions
+              properties:
+                definitions:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - language
+                    - term
+                    - definition
+                    properties:
+                      language:
+                        type: string
+                        description: Language code
+                        example: en
+                      term:
+                        type: string
+                        description: The term text
+                        example: API
+                      definition:
+                        type: string
+                        description: Definition of the term
+                        example: Application Programming Interface
+      responses:
+        '200':
+          description: Term created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/GlossaryTerm'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+  /translation/glossaries/{id}/terms/bulk:
+    post:
+      tags:
+      - Glossaries
+      summary: Create multiple terms with definitions
+      description: Creates multiple terms, each with definitions for multiple languages
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - terms
+              properties:
+                terms:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - definitions
+                    properties:
+                      definitions:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - language
+                          - term
+                          - definition
+                          properties:
+                            language:
+                              type: string
+                              description: Language code
+                              example: en
+                            term:
+                              type: string
+                              description: The term text
+                              example: API
+                            definition:
+                              type: string
+                              description: Definition of the term
+                              example: Application Programming Interface
+      responses:
+        '200':
+          description: All terms created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GlossaryTerm'
+        '207':
+          description: Partial success - some terms created, some failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - partial_success
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      successful:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/GlossaryTerm'
+                      failed:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                              description: Index of the failed term in the original request
+                            error:
+                              type: string
+                              description: Error message
+                            details:
+                              type: string
+                              description: Additional error details (optional)
+                      successCount:
+                        type: integer
+                        description: Number of successfully created terms
+                      failedCount:
+                        type: integer
+                        description: Number of failed terms
+        '400':
+          description: Bad request - all terms failed or validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      details:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: integer
+                            error:
+                              type: string
+                            details:
+                              type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: Glossary not found
+        '500':
+          description: Internal server error
+  /translation/glossaries/{id}/terms/{termId}:
+    get:
+      tags:
+      - Glossaries
+      summary: Get term by ID
+      description: Retrieves a specific term with all its definitions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      - name: termId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Term ID
+      responses:
+        '200':
+          description: Term retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/GlossaryTerm'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Term not found
+        '500':
+          description: Internal server error
+    put:
+      tags:
+      - Glossaries
+      summary: Update term definitions
+      description: Updates a term's definitions for different languages
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      - name: termId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Term ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                definitions:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - language
+                    properties:
+                      language:
+                        type: string
+                        description: Language code
+                        example: en
+                      term:
+                        type: string
+                        description: The term text
+                        example: API
+                      definition:
+                        type: string
+                        description: Definition of the term
+                        example: Application Programming Interface
+      responses:
+        '200':
+          description: Term updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/GlossaryTerm'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Term not found
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+      - Glossaries
+      summary: Delete term
+      description: Deletes a term and all its definitions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      - name: termId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Term ID
+      responses:
+        '200':
+          description: Term deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ID of the deleted term
+        '401':
+          description: Unauthorized
+        '404':
+          description: Term not found
+        '500':
+          description: Internal server error
+  /translation/glossaries/updates:
+    get:
+      tags:
+      - Glossaries
+      summary: Get glossary status updates
+      description: Streams real-time status updates for all glossaries in the organization
+      responses:
+        '200':
+          description: Server-sent events stream with glossary status updates
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events stream
+        '400':
+          description: Bad request - missing organizationId
+        '401':
+          description: Unauthorized
+  /translation/glossaries/updates/{id}:
+    get:
+      tags:
+      - Glossaries
+      summary: Get specific glossary status updates
+      description: Streams real-time status updates for a specific glossary
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Glossary ID
+      responses:
+        '200':
+          description: Server-sent events stream with glossary status updates
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events stream
+        '400':
+          description: Bad request - missing organizationId
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    GlossaryStatus:
+      type: string
+      enum:
+      - OK
+      - CREATING
+      - UPDATING
+      - DELETING
+      - ERROR
+      description: Status of the glossary
+    Glossary:
+      type: object
+      required:
+      - id
+      - name
+      - organizationId
+      - status
+      - createdAt
+      - updatedAt
+      - languages
+      - terms
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the glossary
+        name:
+          type: string
+          description: Name of the glossary
+          example: Technical Terms
+        organizationId:
+          type: string
+          description: ID of the organization that owns this glossary
+        status:
+          $ref: '#/components/schemas/GlossaryStatus'
+        createdAt:
+          type: string
+          format: date-time
+          description: When the glossary was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the glossary was last updated
+        languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlossaryLanguage'
+          description: Languages supported by this glossary
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlossaryTerm'
+          description: Terms in this glossary
+    GlossaryTermDefinition:
+      type: object
+      required:
+      - language
+      - term
+      - definition
+      - createdAt
+      - updatedAt
+      properties:
+        language:
+          type: string
+          description: Language code
+          example: en
+        term:
+          type: string
+          description: The term text
+          example: API
+        definition:
+          type: string
+          description: Definition of the term
+          example: Application Programming Interface
+        createdAt:
+          type: string
+          format: date-time
+          description: When the definition was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the definition was last updated
+    GlossaryLanguage:
+      type: object
+      required:
+      - language
+      - createdAt
+      - updatedAt
+      properties:
+        language:
+          type: string
+          description: Language code
+          example: en
+        createdAt:
+          type: string
+          format: date-time
+          description: When the language was added to the glossary
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the language was last updated
+    GlossaryTerm:
+      type: object
+      required:
+      - id
+      - glossaryId
+      - translationFlag
+      - createdAt
+      - updatedAt
+      - definitions
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the term
+        glossaryId:
+          type: string
+          description: ID of the glossary this term belongs to
+        translationFlag:
+          type: boolean
+          description: Whether this term should be used for translation
+        createdAt:
+          type: string
+          format: date-time
+          description: When the term was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the term was last updated
+        definitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlossaryTermDefinition'
+          description: Definitions of the term in different languages
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

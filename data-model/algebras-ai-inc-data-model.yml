@@ -1,0 +1,60 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algebras-ai-inc-openapi-original.json
+note: Entity graph derived from OpenAPI component schemas ($ref links + id-reference fields).
+entities:
+  - name: Glossary
+    key: id
+    fields: [id, name, organizationId, status, createdAt, updatedAt, languages, terms]
+  - name: GlossaryTerm
+    key: id
+    fields: [id, glossaryId, translationFlag, createdAt, updatedAt, definitions]
+  - name: GlossaryTermDefinition
+    fields: [language, term, definition, createdAt, updatedAt]
+  - name: GlossaryLanguage
+    fields: [language, createdAt, updatedAt]
+  - name: LocalizationHistoryItem
+    key: id
+    fields: [id, status, name, fileKey, createdAt]
+  - name: LocalizationResult
+    fields: [success, message, localizationId, status]
+  - name: RealtimeStreamSession
+    key: id
+    fields: [id, name, createdAt, listeners, sourceLanguage]
+  - name: RtmpIngress
+    key: ingressId
+    fields: [ingressId, ingressUrl, ingressStreamKey]
+  - name: RealtimePublicLink
+    key: publicId
+    fields: [publicId, publicPath, langCode, speakerRoomName, listenerRoomName]
+  - name: Language
+    fields: [language, name]
+relationships:
+  - from: Glossary
+    to: GlossaryTerm
+    type: has_many
+    via: terms
+  - from: Glossary
+    to: GlossaryLanguage
+    type: has_many
+    via: languages
+  - from: Glossary
+    to: GlossaryStatus
+    type: has_one
+    via: status
+  - from: GlossaryTerm
+    to: Glossary
+    type: belongs_to
+    via: glossaryId
+  - from: GlossaryTerm
+    to: GlossaryTermDefinition
+    type: has_many
+    via: definitions
+  - from: LocalizationResult
+    to: TranslationStatus
+    type: has_one
+    via: status
+  - from: LocalizationHistoryItem
+    to: TranslationStatus
+    type: has_one
+    via: status

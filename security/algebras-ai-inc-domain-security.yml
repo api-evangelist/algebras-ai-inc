@@ -1,0 +1,27 @@
+generated: '2026-07-17'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: algebras.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 28 04:56:14 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: platform.algebras.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 22 22:41:24 2026 GMT
+  hsts: false
+- host: beta.algebras.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 20:17:12 2026 GMT
+  hsts: false
+domains:
+- domain: algebras.ai
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

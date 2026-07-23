@@ -1,0 +1,248 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Localization API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Localization
+paths:
+  /translation/localization-table:
+    post:
+      tags:
+      - Localization
+      summary: Generate localization table (async)
+      description: Creates a new localization table job. This is an asynchronous operation that returns immediately with a job ID and status.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: CSV file to be localized (required)
+                glossaryId:
+                  type: string
+                  description: Optional glossary ID to use for localization
+                  default: ''
+                prompt:
+                  type: string
+                  description: Optional prompt to guide localization. This parameter is deprecated and will not affect translation results. To use prompts during table localization, please provide them right in the table in column prompt (check last documentation on page https://platform.algebras.ai/translation/localization)
+                  default: ''
+                isAgentic:
+                  type: boolean
+                  description: Use agentic mode for localization
+                  default: false
+                ignoreCache:
+                  type: boolean
+                  description: Ignore previous translation results
+                  default: false
+              required:
+              - file
+      responses:
+        '200':
+          description: Localization job created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/LocalizationResult'
+        '400':
+          description: Bad request - invalid file format or missing required fields
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    get:
+      tags:
+      - Localization
+      summary: Get localization history
+      description: Retrieves the history of all localization jobs for the organization, ordered by creation date (newest first).
+      responses:
+        '200':
+          description: Localization history retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocalizationHistoryItem'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/localization-table/{id}:
+    get:
+      tags:
+      - Localization
+      summary: Get localization by ID
+      description: Retrieves a specific localization job by its ID. If status is READY, includes a signed download URL.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier of the localization job
+      responses:
+        '200':
+          description: Localization retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    allOf:
+                    - $ref: '#/components/schemas/LocalizationHistoryItem'
+                    - type: object
+                      properties:
+                        downloadUrl:
+                          type: string
+                          format: uri
+                          description: Signed URL for downloading the file (only present when status is READY, expires in 60 minutes)
+        '401':
+          description: Unauthorized
+        '404':
+          description: Localization not found
+        '500':
+          description: Internal server error
+  /translation/localization-table/{id}/download:
+    get:
+      tags:
+      - Localization
+      summary: Get download URL for localization file
+      description: Generates a signed URL for downloading the completed localization file. The URL expires in 60 minutes. Only available for files with READY status.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier of the localization job
+      responses:
+        '200':
+          description: Download URL generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/DownloadUrl'
+        '400':
+          description: File is not ready for download
+        '401':
+          description: Unauthorized
+        '404':
+          description: Localization not found or file not found in storage
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    TranslationStatus:
+      type: string
+      enum:
+      - PENDING
+      - READY
+      - ERROR
+      description: Status of the translation/localization job
+    LocalizationResult:
+      type: object
+      required:
+      - success
+      - message
+      - localizationId
+      - status
+      properties:
+        success:
+          type: boolean
+          description: Whether the localization request was successful
+        message:
+          type: string
+          description: Response message
+        localizationId:
+          type: string
+          description: Unique identifier for the localization job
+        status:
+          $ref: '#/components/schemas/TranslationStatus'
+    LocalizationHistoryItem:
+      type: object
+      required:
+      - id
+      - status
+      - name
+      - fileKey
+      - createdAt
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the localization
+        status:
+          $ref: '#/components/schemas/TranslationStatus'
+        name:
+          type: string
+          description: Name of the localization file
+        fileKey:
+          type: string
+          description: Storage key for the file
+        createdAt:
+          type: string
+          format: date-time
+          description: When the localization was created
+    DownloadUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Signed URL for downloading the file (expires in 60 minutes)
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

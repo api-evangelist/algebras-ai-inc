@@ -1,0 +1,42 @@
+generated: '2026-07-17'
+method: searched
+source: https://github.com/algebras-ai
+note: >-
+  First-party client tooling published in the Algebras GitHub organization
+  (github.com/algebras-ai). No first-party libraries were found on npm, PyPI,
+  Maven Central, NuGet, RubyGems, Packagist, or crates.io under Algebras names;
+  the CLI installs from the GitHub source repository.
+packages:
+  - language: python
+    registry: github
+    name: algebras-cli
+    url: https://github.com/algebras-ai/algebras-cli
+    install: pip install git+https://github.com/algebras-ai/algebras-cli.git
+    official: true
+    kind: cli
+    license: MIT
+    description: AI-driven localization CLI that tracks translation status and translates app resource files across 20+ formats and frameworks.
+  - language: csharp
+    registry: github
+    name: algebras-unity
+    url: https://github.com/algebras-ai/algebras-unity
+    install: git clone https://github.com/algebras-ai/algebras-unity
+    official: true
+    kind: sdk
+    description: Unity integration for Algebras game/app localization.
+  - language: typescript
+    registry: github
+    name: nextjs-auto-translate
+    url: https://github.com/algebras-ai/nextjs-auto-translate
+    install: git clone https://github.com/algebras-ai/nextjs-auto-translate
+    official: true
+    kind: integration
+    description: Next.js automatic translation integration.
+  - language: yaml
+    registry: github
+    name: locale-checker-action
+    url: https://github.com/algebras-ai/locale-checker-action
+    install: 'uses: algebras-ai/locale-checker-action@main'
+    official: true
+    kind: github-action
+    description: GitHub Action that flags issues in locale files in CI.

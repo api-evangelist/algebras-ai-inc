@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: searched
+source: https://github.com/algebras-ai
+note: >-
+  Algebras publishes agent-native operating instructions across two repos: the
+  algebras-skill Agent Skill (saved verbatim here) and the algebras-agent plugin
+  (AGENTS.md / CLAUDE.md / setup SKILL + hosted MCP server, see mcp/).
+skills:
+  - file: algebras-ai-inc-localization.md
+    name: algebras
+    description: Localize app translation files with Algebras CLI (config, glossaries, multi-language translation, healthcheck, PO proofreader comments).
+    api: openapi/algebras-ai-inc-openapi-original.json
+    tooling: cli/algebras-ai-inc-cli.yml
+    upstream: https://github.com/algebras-ai/algebras-skill
+    provider_published: true
+related:
+  - name: Algebras Translation Agent (plugin + MCP)
+    upstream: https://github.com/algebras-ai/algebras-agent
+    agents_md: https://github.com/algebras-ai/algebras-agent/blob/main/plugin/AGENTS.md
+    mcp: mcp/algebras-ai-inc-mcp.yml

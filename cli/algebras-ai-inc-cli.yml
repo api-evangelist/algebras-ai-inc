@@ -1,0 +1,53 @@
+generated: '2026-07-17'
+method: searched
+source: https://github.com/algebras-ai/algebras-cli
+name: algebras
+binary: algebras
+language: python
+license: MIT
+repo: https://github.com/algebras-ai/algebras-cli
+docs: https://docs.algebras.ai/cli/commands/
+package: packages/algebras-ai-inc-packages.yml
+install:
+  - pip install git+https://github.com/algebras-ai/algebras-cli.git
+  - pipx install git+https://github.com/algebras-ai/algebras-cli.git
+requirements: Python 3.7+
+auth:
+  env: ALGEBRAS_API_KEY
+  note: Export ALGEBRAS_API_KEY in the shell or CI secret store; never commit it.
+commands:
+  - name: init
+    summary: Initialize a new Algebras project (.algebras.config).
+    flags: ['--force', '--verbose', '--provider algebras-ai']
+  - name: add
+    summary: Add a target language to the project (e.g. algebras add fr es de).
+  - name: translate
+    summary: Translate application resource files to configured languages.
+    flags: ['--language', '--force', '--only-missing', '--ui-safe', '--glossary-id', '--prompt-file', '--regenerate-from-scratch', '--batch-size', '--max-parallel-batches', '--verbose']
+  - name: update
+    summary: Update existing translations for changed source strings.
+    flags: ['--language', '--full', '--only-missing', '--ui-safe', '--verbose']
+  - name: ci
+    summary: Run CI checks that fail the build when translations are missing/stale.
+    flags: ['--language', '--only-missing', '--verbose']
+  - name: review
+    summary: Review translation quality.
+    flags: ['--language']
+  - name: status
+    summary: Summarize localized / not-localized / total key counts.
+  - name: healthcheck
+    summary: Report locale-file issues (supports --format json).
+formats:
+  - json
+  - yaml
+  - typescript
+  - android-xml
+  - ios-strings
+  - ios-stringsdict
+  - gettext-po
+  - html
+  - flutter-arb
+  - xliff
+  - java-properties
+  - csv
+  - xlsx

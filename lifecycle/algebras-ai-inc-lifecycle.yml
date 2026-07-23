@@ -1,0 +1,19 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.algebras.ai/general/getting-started/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://platform.algebras.ai/api/v1
+  servers:
+    - https://platform.algebras.ai/api/v1
+    - https://beta.algebras.ai/api/v1
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+  note: SLA and priority support are offered on the Enterprise plan (https://algebras.ai/pricing); no public uptime target is published.
+status_page: https://status.algebras.ai
+deprecated_operations: []

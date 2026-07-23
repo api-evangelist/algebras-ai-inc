@@ -1,0 +1,34 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Algebras API
+  version: 1.0.0
+extends: openapi/algebras-ai-inc-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: algebras-ai-inc
+      x-apievangelist-category: [translation, localization, ai]
+      x-apievangelist-auth: api-key-header-X-Api-Key
+      x-apievangelist-note: >-
+        Operations in the source spec have no operationId and no in-spec examples;
+        agents should reference operations by METHOD + path. Errors use a
+        {status,timestamp,message} envelope (not RFC 9457).
+  - target: $.info
+    update:
+      x-apievangelist-tags:
+        - Glossaries
+        - Translation
+        - Localization
+        - Realtime
+        - Video
+        - Languages
+        - Storage
+  - target: $
+    update:
+      x-apievangelist-artifacts:
+        conventions: conventions/algebras-ai-inc-conventions.yml
+        errors: errors/algebras-ai-inc-problem-types.yml
+        authentication: authentication/algebras-ai-inc-authentication.yml
+        lifecycle: lifecycle/algebras-ai-inc-lifecycle.yml
+        data_model: data-model/algebras-ai-inc-data-model.yml
+        mcp: mcp/algebras-ai-inc-mcp.yml

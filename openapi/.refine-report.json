@@ -1,0 +1,30 @@
+{
+  "provider": "algebras-ai-inc",
+  "sources": [
+    "algebras-ai-inc-authentication-api-openapi.yml",
+    "algebras-ai-inc-common-api-openapi.yml",
+    "algebras-ai-inc-glossaries-api-openapi.yml",
+    "algebras-ai-inc-languages-api-openapi.yml",
+    "algebras-ai-inc-localization-api-openapi.yml",
+    "algebras-ai-inc-realtime-api-openapi.yml",
+    "algebras-ai-inc-storage-api-openapi.yml",
+    "algebras-ai-inc-translation-api-openapi.yml",
+    "algebras-ai-inc-video-api-openapi.yml"
+  ],
+  "outputs": [
+    "algebras-ai-inc-authentication-api-openapi.yml",
+    "algebras-ai-inc-common-api-openapi.yml",
+    "algebras-ai-inc-glossaries-api-openapi.yml",
+    "algebras-ai-inc-languages-api-openapi.yml",
+    "algebras-ai-inc-localization-api-openapi.yml",
+    "algebras-ai-inc-realtime-api-openapi.yml",
+    "algebras-ai-inc-storage-api-openapi.yml",
+    "algebras-ai-inc-translation-api-openapi.yml",
+    "algebras-ai-inc-video-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

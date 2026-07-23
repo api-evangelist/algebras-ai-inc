@@ -1,26 +1,254 @@
 aid: algebras-ai-inc
 name: Algebras AI Inc.
-description: Algebras AI Inc. is a company surfaced as a portfolio company of 500-global and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Algebras AI is an AI-powered localization platform that translates UI, video, and audio
+  content into 300+ languages with agentic translation, glossary-aware quality, and voice/video
+  dubbing with lip-sync. The Algebras API (OpenAPI 3.0, API-key auth via the X-Api-Key header)
+  exposes text, batch, and agentic translation, translation fluency evaluation, glossaries and
+  terms, localization tables, language detection, video translation, storage upload URLs, and
+  real-time streaming rooms with RTMP ingress/egress. First-party tooling includes a Python CLI,
+  a Unity SDK, a Next.js integration, a locale-checker GitHub Action, a hosted MCP server, and a
+  published agent skill. Algebras AI was surfaced as a 500 Global portfolio company.
 url: https://raw.githubusercontent.com/api-evangelist/algebras-ai-inc/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
 modified: '2026-07-17'
+image: https://algebras.ai/favicon.ico
 tags:
 - Company
-apis: []
+- Translation
+- Localization
+- Internationalization
+- Artificial Intelligence
+- Machine Translation
+- Voice
+- Video
+- Developer Tools
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: algebras-ai-inc:algebras-ai-inc-authentication-api
+  name: Algebras AI Inc. Authentication API
+  description: The Authentication API from Algebras AI Inc. — 1 operation(s) for authentication.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-common-api
+  name: Algebras AI Inc. Common API
+  description: The Common API from Algebras AI Inc. — 1 operation(s) for common.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Common
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-common-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-glossaries-api
+  name: Algebras AI Inc. Glossaries API
+  description: The Glossaries API from Algebras AI Inc. — 7 operation(s) for glossaries.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Glossaries
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-glossaries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-languages-api
+  name: Algebras AI Inc. Languages API
+  description: The Languages API from Algebras AI Inc. — 2 operation(s) for languages.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-languages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-localization-api
+  name: Algebras AI Inc. Localization API
+  description: The Localization API from Algebras AI Inc. — 3 operation(s) for localization.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Localization
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-localization-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-realtime-api
+  name: Algebras AI Inc. Realtime API
+  description: The Realtime API from Algebras AI Inc. — 11 operation(s) for realtime.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Realtime
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-realtime-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-storage-api
+  name: Algebras AI Inc. Storage API
+  description: The Storage API from Algebras AI Inc. — 1 operation(s) for storage.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-storage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-translation-api
+  name: Algebras AI Inc. Translation API
+  description: The Translation API from Algebras AI Inc. — 6 operation(s) for translation.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Translation
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-translation-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
+- aid: algebras-ai-inc:algebras-ai-inc-video-api
+  name: Algebras AI Inc. Video API
+  description: The Video API from Algebras AI Inc. — 2 operation(s) for video.
+  humanURL: https://docs.algebras.ai
+  baseURL: https://platform.algebras.ai/api/v1
+  tags:
+  - Video
+  properties:
+  - type: OpenAPI
+    url: openapi/algebras-ai-inc-video-api-openapi.yml
+  - type: Documentation
+    url: https://docs.algebras.ai
+  - type: APIReference
+    url: https://platform.algebras.ai/api/v1
+  - type: GettingStarted
+    url: https://docs.algebras.ai/general/getting-started/
 common:
+- type: DeveloperPortal
+  url: https://platform.algebras.ai
+- type: Documentation
+  url: https://docs.algebras.ai
+- type: APIReference
+  url: https://platform.algebras.ai/api/v1
+- type: GettingStarted
+  url: https://docs.algebras.ai/general/getting-started/
+- type: Blog
+  url: https://algebras.ai/blog
+- type: GitHubOrganization
+  url: https://github.com/algebras-ai
+- type: Support
+  url: mailto:support@algebras.ai
+- type: Pricing
+  url: https://algebras.ai/pricing
+- type: SignUp
+  url: https://platform.algebras.ai/signup
+- type: Login
+  url: https://platform.algebras.ai/login
+- type: PrivacyPolicy
+  url: https://algebras.ai/privacy-policy
+- type: StatusPage
+  url: https://status.algebras.ai
+- type: Authentication
+  url: authentication/algebras-ai-inc-authentication.yml
+- type: Conventions
+  url: conventions/algebras-ai-inc-conventions.yml
+- type: ErrorCatalog
+  url: errors/algebras-ai-inc-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/algebras-ai-inc-lifecycle.yml
+- type: DataModel
+  url: data-model/algebras-ai-inc-data-model.yml
+- type: Conformance
+  url: conformance/algebras-ai-inc-conformance.yml
+- type: Packages
+  url: packages/algebras-ai-inc-packages.yml
+- type: SDKs
+  url: packages/algebras-ai-inc-packages.yml
+- type: CLI
+  url: cli/algebras-ai-inc-cli.yml
+- type: MCPServer
+  url: mcp/algebras-ai-inc-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/algebras-ai-inc-llms.txt
+- type: AgenticAccess
+  url: agentic-access/algebras-ai-inc-agentic-access.yml
+- type: DomainSecurity
+  url: security/algebras-ai-inc-domain-security.yml
 - type: Website
   url: https://algebras.ai
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

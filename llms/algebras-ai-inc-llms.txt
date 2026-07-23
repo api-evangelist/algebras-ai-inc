@@ -1,0 +1,28 @@
+# Algebras AI
+
+> Algebras AI is an AI-powered localization platform that translates UI, video, and audio content into 300+ languages with agentic translation, glossary-aware quality, voice/video dubbing with lip-sync, and real-time streaming. The Algebras API (OpenAPI 3.0, API-key auth via the X-Api-Key header) exposes text/batch/agentic translation, fluency evaluation, glossaries, localization tables, language detection, video translation, storage upload URLs, and real-time streaming rooms.
+
+## APIs
+- [Algebras API v1](https://platform.algebras.ai/api/v1): Text, batch, and agentic translation; glossaries; localization tables; fluency; language detection; video translation; real-time streaming. Base URL https://platform.algebras.ai/api/v1, auth X-Api-Key header.
+
+## Specs
+- [OpenAPI 3.0 (JSON)](https://platform.algebras.ai/api/v1/openapi.json): 44 operations across Glossaries, Translation, Localization, Realtime, Video, Languages, Storage, Authentication.
+
+## Docs
+- [Documentation](https://docs.algebras.ai): Developer documentation.
+- [Getting Started](https://docs.algebras.ai/general/getting-started/): Authentication and first request.
+- [API Keys](https://platform.algebras.ai/api-keys): Create and manage API keys.
+- [Pricing](https://algebras.ai/pricing): Standard/Pro/Premium/Enterprise plans and video packages.
+- [Status](https://status.algebras.ai): Service status page.
+
+## Tooling
+- [Algebras CLI](https://github.com/algebras-ai/algebras-cli): Python localization CLI (init/add/translate/update/ci/review) for 20+ file formats.
+- [Translation Agent + MCP](https://github.com/algebras-ai/algebras-agent): Agent plugin with a hosted MCP server at https://platform.algebras.ai/api/mcp (x-api-key auth); works with Claude Code, Cursor, Codex, Windsurf, GitHub Copilot.
+- [Agent Skill](https://github.com/algebras-ai/algebras-skill): Published Algebras localization Agent Skill.
+- [Unity SDK](https://github.com/algebras-ai/algebras-unity), [Next.js integration](https://github.com/algebras-ai/nextjs-auto-translate), [Locale Checker GitHub Action](https://github.com/algebras-ai/locale-checker-action).
+
+## Company
+- [Website](https://algebras.ai)
+- [Blog](https://algebras.ai/blog)
+- [GitHub](https://github.com/algebras-ai)
+- [Privacy Policy](https://algebras.ai/privacy-policy)

@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Storage API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Storage
+paths:
+  /storage/upload-url:
+    post:
+      summary: Get a signed URL for uploading a video file to storage
+      description: 'Returns a signed URL that allows the client to upload a video file directly to cloud storage. Supported formats: `video/mp4`, `video/quicktime`, `video/x-matroska`, `video/webm`
+
+        '
+      tags:
+      - Storage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - filename
+              - type
+              - contentType
+              - language
+              properties:
+                filename:
+                  type: string
+                  example: video.mp4
+                  description: The name of the video file to upload.
+                type:
+                  type: string
+                  enum:
+                  - video
+                  example: video
+                  description: File type (must be video).
+                contentType:
+                  type: string
+                  example: video/mp4
+                  description: MIME type of the video file.
+                language:
+                  type: string
+                  example: eng
+                  description: Language code for the video content (ISO 639-3).
+      responses:
+        '200':
+          description: Successfully generated signed upload URL.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      videoId:
+                        type: string
+                        example: clx123abc456
+                        description: Video record ID (only for video uploads)
+                      url:
+                        type: string
+                        example: https://storage.googleapis.com/bucket/video-uploads/lecture_clx123abc456.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=...
+                      filePath:
+                        type: string
+                        example: video-uploads/lecture_clx123abc456.mp4
+                      expiresAt:
+                        type: string
+                        format: date-time
+                        description: Upload expiration time (only for video uploads)
+        '400':
+          description: Invalid input (validation error).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        example: Invalid form data
+                      issues:
+                        type: array
+                        items:
+                          type: string
+                          example: Unsupported content type for selected type
+        '401':
+          description: Unauthorized (invalid API key).
+        '500':
+          description: Internal server error.
+components:
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

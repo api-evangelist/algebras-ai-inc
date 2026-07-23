@@ -1,0 +1,803 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Realtime API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Realtime
+paths:
+  /translation/live:
+    get:
+      tags:
+      - Realtime
+      summary: List realtime stream sessions
+      description: Returns all realtime stream sessions for the API key organization.
+      security:
+      - APIKeyHeader: []
+      responses:
+        '200':
+          description: Stream sessions retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RealtimeStreamSession'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - Realtime
+      summary: Create a realtime stream session
+      description: Creates a realtime stream session for the API key organization.
+      security:
+      - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRealtimeStreamSessionRequest'
+      responses:
+        '200':
+          description: Stream session created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/RealtimeStreamSession'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/live/{streamId}:
+    get:
+      tags:
+      - Realtime
+      summary: Get a realtime stream session
+      description: Returns a single realtime stream session by ID.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: Stream session retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    nullable: true
+                    allOf:
+                    - $ref: '#/components/schemas/RealtimeStreamSession'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/live/{streamId}/stop:
+    post:
+      tags:
+      - Realtime
+      summary: Stop a realtime speaker room
+      description: Closes the speaker room and all listener rooms associated with the stream.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: Speaker room stopped successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/StopRealtimeStreamResult'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/live/{streamId}/stats:
+    get:
+      tags:
+      - Realtime
+      summary: Stream realtime stats
+      description: Streams realtime speaker/listener status updates for a stream session. API key authentication is supported for external clients; session authentication remains supported for the dashboard.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: Server-sent events stream with realtime stats updates
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events stream
+        '400':
+          description: Bad request - missing organizationId
+        '401':
+          description: Unauthorized
+        '404':
+          description: Stream session not found
+  /translation/live/{streamId}/start:
+    post:
+      tags:
+      - Realtime
+      summary: Start a realtime speaker room
+      description: Creates or reuses the speaker room and returns a LiveKit token for publishing audio into the stream.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartRealtimeStreamRequest'
+      responses:
+        '200':
+          description: Speaker room started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/RealtimeSpeakerConnection'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/live/{streamId}/rtmp-ingress:
+    get:
+      tags:
+      - Realtime
+      summary: Get RTMP ingress credentials
+      description: Returns the current RTMP ingress credentials for a realtime stream, if any exist.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: RTMP ingress credentials retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    nullable: true
+                    allOf:
+                    - $ref: '#/components/schemas/RtmpIngress'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - Realtime
+      summary: Create RTMP ingress credentials
+      description: Creates a new RTMP ingress for a realtime stream. If one already exists, it is rotated.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: RTMP ingress created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/RtmpIngress'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+      - Realtime
+      summary: Delete RTMP ingress credentials
+      description: Deletes the RTMP ingress and clears any saved ingress credentials for the realtime stream.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      responses:
+        '200':
+          description: RTMP ingress deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    nullable: true
+                    example: null
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /translation/live/{streamId}/public-links:
+    post:
+      tags:
+      - Realtime
+      summary: Generate a public listener link
+      description: Creates or reactivates a public listener link for a realtime stream.
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: streamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Stream session ID
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateRealtimePublicLinkRequest'
+      responses:
+        '200':
+          description: Public listener link generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/RealtimePublicLink'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /public/live/{publicId}/stats:
+    get:
+      tags:
+      - Realtime
+      summary: Public realtime stats
+      description: Streams realtime speaker/listener status updates for a public live link.
+      security: []
+      parameters:
+      - name: publicId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Public listener link ID
+      responses:
+        '200':
+          description: Server-sent events stream with realtime stats updates
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events stream
+        '404':
+          description: Public link or stream not found
+        '410':
+          description: Public link has expired
+  /public/live/{publicId}/egress:
+    post:
+      tags:
+      - Realtime
+      summary: Start RTMP egress for a public listener room
+      description: Starts audio-only RTMP egress for the translated listener room represented by the public link.
+      security: []
+      parameters:
+      - name: publicId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Public listener link ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartRtmpEgressRequest'
+      responses:
+        '200':
+          description: RTMP egress started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/StartRtmpEgressResult'
+        '400':
+          description: Invalid request body
+        '404':
+          description: Public link not found
+        '410':
+          description: Public link has expired
+        '500':
+          description: Internal server error
+  /public/live/{publicId}/egress/{egressId}:
+    delete:
+      tags:
+      - Realtime
+      summary: Stop RTMP egress
+      description: Stops a previously started RTMP egress session for a public listener room.
+      security: []
+      parameters:
+      - name: publicId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Public listener link ID
+      - name: egressId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: LiveKit egress ID
+      responses:
+        '200':
+          description: RTMP egress stopped successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    nullable: true
+                    example: null
+        '500':
+          description: Internal server error
+  /public/live/{publicId}/connection:
+    get:
+      tags:
+      - Realtime
+      summary: Resolve a public listener connection
+      description: Resolves a public listener link into a LiveKit connection payload for joining a translated listener room.
+      security: []
+      parameters:
+      - name: publicId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Public listener link ID
+      - name: targetLang
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Preferred target language code for the listener room
+      responses:
+        '200':
+          description: Public listener connection resolved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - status
+                - timestamp
+                - data
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    $ref: '#/components/schemas/PublicListenerConnection'
+        '404':
+          description: Public link or stream not found
+        '410':
+          description: Public link has expired
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    RealtimeSpeakerConnection:
+      type: object
+      required:
+      - roomName
+      - serverUrl
+      - token
+      - participantIdentity
+      - participantName
+      properties:
+        roomName:
+          type: string
+          description: LiveKit speaker room name
+          example: stream-cmabc123stream
+        serverUrl:
+          type: string
+          description: LiveKit server URL
+          example: wss://algebras-livekit.example.com
+        token:
+          type: string
+          description: JWT token for joining the speaker room
+        participantIdentity:
+          type: string
+          description: Speaker participant identity
+          example: speaker-api-key-id
+        participantName:
+          type: string
+          description: Speaker participant display name
+          example: API Speaker
+    GenerateRealtimePublicLinkRequest:
+      type: object
+      properties:
+        langCode:
+          type: string
+          description: Optional listener language code for the public link
+          example: spanish
+    RealtimeStreamSession:
+      type: object
+      required:
+      - id
+      - name
+      - createdAt
+      - listeners
+      - sourceLanguage
+      properties:
+        id:
+          type: string
+          description: Unique stream session ID
+          example: cmabc123stream
+        name:
+          type: string
+          description: Human-readable stream session name
+          example: Weekly all-hands
+        createdAt:
+          type: string
+          format: date-time
+          description: When the stream session was created
+          example: '2026-04-16T12:30:00.000Z'
+        listeners:
+          type: integer
+          description: Current listener count snapshot
+          example: 0
+        sourceLanguage:
+          type: string
+          description: Source language code for the stream session
+          example: en
+    StartRtmpEgressResult:
+      type: object
+      required:
+      - egressId
+      properties:
+        egressId:
+          type: string
+          description: LiveKit egress ID
+          example: EG_xxxxx
+    PublicListenerConnection:
+      type: object
+      required:
+      - streamId
+      - streamName
+      - serverUrl
+      - token
+      - roomName
+      - sourceRoom
+      - sourceLang
+      - targetLang
+      properties:
+        streamId:
+          type: string
+          description: Stream session ID
+          example: cmabc123stream
+        streamName:
+          type: string
+          description: Stream session name
+          example: Weekly all-hands
+        serverUrl:
+          type: string
+          description: LiveKit server URL
+          example: wss://algebras-livekit.example.com
+        token:
+          type: string
+          description: JWT token for joining the listener room
+        roomName:
+          type: string
+          description: LiveKit listener room name
+          example: stream-cmabc123stream-en
+        sourceRoom:
+          type: string
+          description: Source speaker room name
+          example: stream-cmabc123stream
+        sourceLang:
+          type: string
+          description: Source language code
+          example: en
+        targetLang:
+          type: string
+          description: Target language code
+          example: es
+    RtmpIngress:
+      type: object
+      required:
+      - ingressId
+      - ingressUrl
+      - ingressStreamKey
+      properties:
+        ingressId:
+          type: string
+          description: LiveKit ingress ID
+          example: ingress_123
+        ingressUrl:
+          type: string
+          description: RTMP ingest URL
+          example: rtmp://ingest.example.com/live
+        ingressStreamKey:
+          type: string
+          description: RTMP stream key
+    StartRealtimeStreamRequest:
+      type: object
+      properties:
+        participantName:
+          type: string
+          description: Optional participant display name for the speaker connection
+          example: API Speaker
+    RealtimePublicLink:
+      type: object
+      required:
+      - publicId
+      - publicPath
+      - langCode
+      - speakerRoomName
+      - listenerRoomName
+      properties:
+        publicId:
+          type: string
+          description: Public listener link ID
+          example: cmpublic123
+        publicPath:
+          type: string
+          description: Relative path for the public listener link redirect
+          example: /api/public/live/cmpublic123
+        langCode:
+          type: string
+          description: Listener language code encoded in the link
+          example: spanish
+        speakerRoomName:
+          type: string
+          description: LiveKit speaker room name
+          example: stream-cmabc123stream
+        listenerRoomName:
+          type: string
+          description: LiveKit listener room name
+          example: stream-cmabc123stream-spanish
+    StopRealtimeStreamResult:
+      type: object
+      required:
+      - closedRooms
+      properties:
+        closedRooms:
+          type: integer
+          description: Number of LiveKit rooms that were closed
+          example: 3
+    StartRtmpEgressRequest:
+      type: object
+      required:
+      - targetLang
+      - rtmpUrl
+      properties:
+        targetLang:
+          type: string
+          description: Target language code for the listener room
+          example: es
+        rtmpUrl:
+          type: string
+          description: Base RTMP destination URL
+          example: rtmp://a.rtmp.youtube.com/live2
+        streamKey:
+          type: string
+          description: Optional RTMP stream key appended to the URL
+          example: abcd-1234-efgh-5678
+    CreateRealtimeStreamSessionRequest:
+      type: object
+      required:
+      - name
+      - sourceLanguage
+      properties:
+        name:
+          type: string
+          description: Name of the stream session
+          example: Weekly all-hands
+        sourceLanguage:
+          type: string
+          description: Source language code
+          example: en
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

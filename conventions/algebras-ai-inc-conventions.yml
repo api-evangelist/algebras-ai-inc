@@ -1,0 +1,50 @@
+generated: '2026-07-17'
+method: searched
+source: https://docs.algebras.ai/general/getting-started/
+note: >-
+  Cross-cutting request/response semantics for the Algebras API, captured from
+  docs.algebras.ai and derived from the OpenAPI at
+  openapi/algebras-ai-inc-openapi-original.json.
+authentication:
+  style: api-key
+  header: X-Api-Key
+  docs: https://docs.algebras.ai/general/getting-started/
+  key_management: https://platform.algebras.ai/api-keys
+  see: authentication/algebras-ai-inc-authentication.yml
+base_url: https://platform.algebras.ai/api/v1
+content_type: application/json
+response_envelope:
+  fields: [status, timestamp, data]
+  success_example: '{"status": "ok", "timestamp": "2025-01-12T22:31:48.856Z", "data": "¡Hola, mundo!"}'
+  note: Successful responses carry a status/timestamp wrapper with the payload under data.
+idempotency:
+  supported: false
+  note: >-
+    No Idempotency-Key header or parameter is documented or present in the OpenAPI.
+    Write operations (translate, agentic-translate, localization-table, video/translate)
+    are asynchronous task-creation calls; poll the returned task/localization id for status.
+pagination:
+  style: page-number
+  params: [page, limit]
+  note: List endpoints (e.g. glossaries, localization history) accept page and limit query parameters.
+async_tasks:
+  pattern: create-then-poll
+  note: >-
+    Long-running work (agentic-translate, localization-table, video translate) returns a task/localization
+    id; retrieve status via the matching GET (e.g. GET /translation/agentic-translate/{id},
+    GET /translation/localization-table/{id}) and then the download URL endpoint.
+versioning:
+  style: uri-path
+  current: v1
+  see: lifecycle/algebras-ai-inc-lifecycle.yml
+errors:
+  envelope: {status, timestamp, message}
+  format: none
+  see: errors/algebras-ai-inc-problem-types.yml
+rate_limiting:
+  signaled: true
+  note: A 429 Too Many Requests response is defined in the OpenAPI; specific header names and quotas are not published in the docs.
+credits:
+  note: >-
+    Usage is metered in words / AI credits and video minutes against the account plan; an exhausted balance
+    returns HTTP 402 Payment Required. See https://algebras.ai/pricing.

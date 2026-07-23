@@ -1,0 +1,1025 @@
+openapi: 3.0.0
+info:
+  title: Algebras Authentication Translation API
+  version: '1.0'
+servers:
+- url: https://platform.algebras.ai/api/v1
+- url: http://localhost:3000/api/v1
+- url: https://beta.algebras.ai/api/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Translation
+paths:
+  /translation/translate-batch:
+    post:
+      tags:
+      - Translation
+      summary: Translate multiple texts in batch
+      description: Translates multiple texts with the same translation settings.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                texts:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of texts to be translated (max 20)
+                  example:
+                  - Hello world
+                  - How are you?
+                  - Good morning
+                contexts:
+                  type: array
+                  items:
+                    type: string
+                    nullable: true
+                  description: Optional per-row translator context aligned by index with texts
+                  example:
+                  - null
+                  - Mary stutters from excitement
+                  - This line appears after a wall collapse
+                sourceLanguage:
+                  type: string
+                  description: The source language (use 'auto' for automatic detection)
+                  example: en
+                targetLanguage:
+                  type: string
+                  description: The target language for the translation
+                  example: de
+                glossaryId:
+                  type: string
+                  description: Optional glossary ID to use for translation
+                  default: null
+                prompt:
+                  type: string
+                  description: Optional prompt to guide translation
+                  default: null
+                flag:
+                  type: boolean
+                  description: Optional flag for length preservation
+                  example: false
+                ignoreCache:
+                  type: boolean
+                  description: Ignore previous translation results
+                  example: false
+                fluency:
+                  type: boolean
+                  description: Evaluate translation fluency in the same LLM call
+                  example: false
+              required:
+              - texts
+              - sourceLanguage
+              - targetLanguage
+      responses:
+        '200':
+          description: Successful batch translation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      translations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: number
+                              description: Original index of the text in the input array
+                            content:
+                              type: string
+                              description: Translated content
+                            warning:
+                              type: string
+                              description: Optional warning message
+                            error:
+                              type: string
+                              description: Error message if translation failed
+                            status_code:
+                              type: number
+                              description: HTTP status code for failed translations
+                      fluency:
+                        type: array
+                        description: Fluency evaluations (present only when fluency flag was set)
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: number
+                              description: Original index of the text in the input array
+                            value:
+                              type: number
+                              nullable: true
+                              description: Aggregate fluency score (mean of 5 dimensions, 1-10)
+                            idiomatic:
+                              type: number
+                              nullable: true
+                              description: Naturalness of expression (1-10)
+                            collocational:
+                              type: number
+                              nullable: true
+                              description: Standard word combinations (1-10)
+                            discourse:
+                              type: number
+                              nullable: true
+                              description: Connectors and coherence (1-10)
+                            pragmatic:
+                              type: number
+                              nullable: true
+                              description: Register and tone (1-10)
+                            calque:
+                              type: number
+                              nullable: true
+                              description: Avoids mirror renderings (1-10, high = few calques)
+                            issue_type:
+                              type: string
+                              nullable: true
+                              description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
+                            severity:
+                              type: string
+                              nullable: true
+                              description: critical | major | minor | cosmetic
+                            problematic_phrase:
+                              type: string
+                              nullable: true
+                              description: Short substring illustrating the main problem
+                            suggested_fix:
+                              type: string
+                              nullable: true
+                              description: Brief fix suggestion
+                            main_issue:
+                              type: string
+                              nullable: true
+                              description: One sentence summary of the main linguistic issue
+                      batch_summary:
+                        type: object
+                        properties:
+                          total:
+                            type: number
+                            description: Total number of texts processed
+                          successful:
+                            type: number
+                            description: Number of successful translations
+                          failed:
+                            type: number
+                            description: Number of failed translations
+                          total_credits:
+                            type: number
+                            description: Total credits consumed (internal use only)
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+                      issues:
+                        type: array
+                        items:
+                          type: string
+                        description: Validation error messages
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Authentication error message
+        '402':
+          description: Payment required - quota exceeded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Quota exceeded message
+                      quota_exceeded:
+                        type: boolean
+                        description: Indicates quota was exceeded
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+  /translation/translate:
+    post:
+      tags:
+      - Translation
+      summary: Translate text or files
+      description: Translates the given text or files into the target language.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                sourceLanguage:
+                  type: string
+                  description: The source language (use 'auto' for automatic detection)
+                  example: auto
+                targetLanguage:
+                  type: string
+                  description: The target language for the translation
+                  example: de
+                textContent:
+                  type: string
+                  description: Text to be translated (mutually exclusive with fileContent)
+                  example: Hello world
+                fileContent:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                  description: CSV files to be translated (mutually exclusive with textContent)
+                  default: []
+                glossaryId:
+                  type: string
+                  description: Optional glossary ID to use for translation
+                  default: ''
+                prompt:
+                  type: string
+                  description: Optional prompt to guide translation
+                  default: ''
+                flag:
+                  type: boolean
+                  description: Optional flag for length preservation
+                  default: false
+                ignoreCache:
+                  type: boolean
+                  description: Ignore previous translation results
+                  default: false
+                fluency:
+                  type: boolean
+                  description: Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)
+                  default: false
+              required:
+              - sourceLanguage
+              - targetLanguage
+      responses:
+        '200':
+          description: Successful translation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: string
+                    description: Translated text content
+                  fluency:
+                    type: object
+                    description: Fluency evaluation (present only when fluency flag was set and text was not chunked)
+                    properties:
+                      value:
+                        type: number
+                        nullable: true
+                        description: Aggregate fluency score (mean of 5 dimensions, 1-10)
+                      idiomatic:
+                        type: number
+                        nullable: true
+                        description: Naturalness of expression for a native reader (1-10)
+                      collocational:
+                        type: number
+                        nullable: true
+                        description: Standard, commonly accepted word combinations (1-10)
+                      discourse:
+                        type: number
+                        nullable: true
+                        description: Connectors, coherence, information structure (1-10)
+                      pragmatic:
+                        type: number
+                        nullable: true
+                        description: Register, tone, implicature, dialogue markers (1-10)
+                      calque:
+                        type: number
+                        nullable: true
+                        description: Avoids mirror renderings from source (1-10, high = few calques)
+                      issue_type:
+                        type: string
+                        nullable: true
+                        description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
+                      severity:
+                        type: string
+                        nullable: true
+                        description: critical | major | minor | cosmetic
+                      problematic_phrase:
+                        type: string
+                        nullable: true
+                        description: Short substring from the translation illustrating the main problem
+                      suggested_fix:
+                        type: string
+                        nullable: true
+                        description: Brief fix suggestion
+                      main_issue:
+                        type: string
+                        nullable: true
+                        description: One sentence summary of the main linguistic issue
+            application/zip:
+              schema:
+                type: string
+                format: binary
+              description: ZIP file containing translated CSV files
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+                      issues:
+                        type: array
+                        items:
+                          type: string
+                        description: Validation error messages
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Authentication error message
+        '402':
+          description: Payment required - quota exceeded or unpaid invoice
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Quota exceeded or billing error message
+                      quota_exceeded:
+                        type: boolean
+                        description: Indicates quota was exceeded or payment is required
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+  /translation/fluency-batch:
+    post:
+      tags:
+      - Translation
+      summary: Evaluate fluency of multiple translations in batch
+      description: Evaluates the fluency of up to 20 translation pairs concurrently. Individual item failures do not abort the whole batch.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceLang:
+                  type: string
+                  description: The source language code
+                  example: en
+                targetLang:
+                  type: string
+                  description: The target language code
+                  example: de
+                items:
+                  type: array
+                  description: Translation pairs to evaluate (max 20)
+                  items:
+                    type: object
+                    properties:
+                      sourceText:
+                        type: string
+                        description: The original text in the source language
+                        example: Hello world
+                      translatedText:
+                        type: string
+                        description: The translated text to evaluate
+                        example: Hallo Welt
+                    required:
+                    - sourceText
+                    - translatedText
+              required:
+              - sourceLang
+              - targetLang
+              - items
+      responses:
+        '200':
+          description: Successful batch fluency evaluation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      evaluations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            index:
+                              type: number
+                              description: Original index of the item in the input array
+                            fluency:
+                              type: number
+                              nullable: true
+                              description: Aggregate fluency score (mean of 5 dimensions, 1-10)
+                            idiomatic:
+                              type: number
+                              nullable: true
+                              description: Naturalness of expression (1-10)
+                            collocational:
+                              type: number
+                              nullable: true
+                              description: Standard word combinations (1-10)
+                            discourse:
+                              type: number
+                              nullable: true
+                              description: Connectors and coherence (1-10)
+                            pragmatic:
+                              type: number
+                              nullable: true
+                              description: Register and tone (1-10)
+                            calque:
+                              type: number
+                              nullable: true
+                              description: Avoids mirror renderings (1-10, high = few calques)
+                            issue_type:
+                              type: string
+                              nullable: true
+                              description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
+                            severity:
+                              type: string
+                              nullable: true
+                              description: critical | major | minor | cosmetic
+                            problematic_phrase:
+                              type: string
+                              nullable: true
+                              description: Short substring illustrating the main problem
+                            suggested_fix:
+                              type: string
+                              nullable: true
+                              description: Brief fix suggestion
+                            main_issue:
+                              type: string
+                              nullable: true
+                              description: One sentence summary of the main linguistic issue
+                            error:
+                              type: string
+                              nullable: true
+                              description: Error message if evaluation failed for this item
+                            status_code:
+                              type: number
+                              nullable: true
+                              description: HTTP status code for failed evaluations
+                      batch_summary:
+                        type: object
+                        properties:
+                          total:
+                            type: number
+                            description: Total number of items processed
+                          successful:
+                            type: number
+                            description: Number of successful evaluations
+                          failed:
+                            type: number
+                            description: Number of failed evaluations
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '402':
+          description: Payment required - quota exceeded
+        '500':
+          description: Internal server error
+  /translation/fluency:
+    post:
+      tags:
+      - Translation
+      summary: Evaluate translation fluency
+      description: Evaluates the fluency of a translation and provides improvement feedback.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceLang:
+                  type: string
+                  description: The source language code
+                  example: en
+                targetLang:
+                  type: string
+                  description: The target language code
+                  example: de
+                sourceText:
+                  type: string
+                  description: The original text in the source language
+                  example: Hello world
+                translatedText:
+                  type: string
+                  description: The translated text to evaluate
+                  example: Hallo Welt
+              required:
+              - sourceLang
+              - targetLang
+              - sourceText
+              - translatedText
+      responses:
+        '200':
+          description: Successful fluency evaluation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      fluency:
+                        type: number
+                        format: float
+                        description: Aggregate fluency score (mean of 5 dimensions, 1-10)
+                        example: 6.4
+                      idiomatic:
+                        type: integer
+                        description: Naturalness of expression for a native reader (1-10)
+                        example: 7
+                      collocational:
+                        type: integer
+                        description: Standard, commonly accepted word combinations (1-10)
+                        example: 6
+                      discourse:
+                        type: integer
+                        description: Connectors, coherence, information structure (1-10)
+                        example: 7
+                      pragmatic:
+                        type: integer
+                        description: Register, tone, implicature, dialogue markers (1-10)
+                        example: 6
+                      calque:
+                        type: integer
+                        description: Avoids mirror renderings from source (1-10, high = few calques)
+                        example: 6
+                      issue_type:
+                        type: string
+                        description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
+                        example: collocation
+                      severity:
+                        type: string
+                        description: critical | major | minor | cosmetic
+                        example: minor
+                      problematic_phrase:
+                        type: string
+                        description: Short substring from the translation illustrating the main problem
+                        example: macht Sinn
+                      suggested_fix:
+                        type: string
+                        description: Brief fix suggestion
+                        example: ergibt Sinn
+                      main_issue:
+                        type: string
+                        description: One sentence summary of the main linguistic issue
+                        example: The phrase is a calque from English and unnatural in German.
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Authentication error message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+  /translation/agentic-translate:
+    post:
+      tags:
+      - Translation
+      summary: Start an agentic translation task
+      description: Initiates an asynchronous agentic translation task and returns a task ID for status tracking.
+      parameters:
+      - in: header
+        name: X-Webhook-Url
+        schema:
+          type: string
+          format: uri
+        required: false
+        description: Optional webhook URL to receive the translation result when the task is complete.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                textContent:
+                  type: string
+                  description: Text to be translated
+                  example: Hello world
+                sourceLanguage:
+                  type: string
+                  description: The source language (use 'auto' for automatic detection)
+                  example: auto
+                targetLanguage:
+                  type: string
+                  description: The target language for the translation
+                  example: de
+                prompt:
+                  type: string
+                  description: Custom prompt for translation
+                  example: Make all text in capital letters
+                ignoreCache:
+                  type: boolean
+                  description: Ignore previous translation results
+              required:
+              - textContent
+              - sourceLanguage
+              - targetLanguage
+      responses:
+        '200':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    properties:
+                      task_id:
+                        type: string
+                        description: ID of the created translation task
+                      history_id:
+                        type: string
+                        description: ID of the translation history record
+                      status:
+                        type: string
+                        enum:
+                        - pending
+                        description: Initial status of the translation task
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+                      issues:
+                        type: array
+                        items:
+                          type: string
+                        description: Validation error messages
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Authentication error message
+        '402':
+          description: Payment required - quota exceeded or unpaid invoice
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Quota exceeded or billing error message
+                      quota_exceeded:
+                        type: boolean
+                        description: Indicates quota was exceeded or payment is required
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - error
+                  timestamp:
+                    type: string
+                    format: date-time
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: Error message
+  /translation/agentic-translate/{id}:
+    get:
+      tags:
+      - Translation
+      summary: Get agentic translation task status by ID
+      description: Retrieves the status and result of a specific agentic translation task by its ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier of the agentic translation task
+      responses:
+        '200':
+          description: Agentic translation task retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                  timestamp:
+                    type: string
+                    format: date-time
+                  data:
+                    type: object
+                    required:
+                    - id
+                    - status
+                    - createdAt
+                    properties:
+                      id:
+                        type: string
+                        description: Unique identifier for the agentic translation task
+                      status:
+                        $ref: '#/components/schemas/TranslationStatus'
+                      createdAt:
+                        type: string
+                        format: date-time
+                        description: When the agentic translation task was created
+                      completedAt:
+                        type: string
+                        format: date-time
+                        description: When the agentic translation task was completed (only present when status is READY or ERROR)
+                      result:
+                        type: string
+                        description: Translated content (only present when status is READY)
+                      error:
+                        type: string
+                        description: Error message (only present when status is ERROR)
+                      sourceLanguage:
+                        type: string
+                        description: Source language of the translation
+                      targetLanguage:
+                        type: string
+                        description: Target language of the translation
+        '401':
+          description: Unauthorized
+        '404':
+          description: Agentic translation task not found
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    TranslationStatus:
+      type: string
+      enum:
+      - PENDING
+      - READY
+      - ERROR
+      description: Status of the translation/localization job
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+externalDocs:
+  url: https://docs.algebras.ai

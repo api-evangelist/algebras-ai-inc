@@ -1,0 +1,99 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/algebras-ai-inc-openapi-original.json
+format: none
+note: Algebras returns a plain JSON envelope {status, timestamp, data|message}; responses
+  are NOT application/problem+json (RFC 9457). Titles/remediation curated from the
+  docs error reference (docs.algebras.ai) and HTTP semantics.
+error_envelope:
+  fields:
+  - status
+  - timestamp
+  - message
+  example:
+    status: error
+    timestamp: '2025-01-12T22:31:48.856Z'
+    message: Unauthorized
+problems:
+- status: 207
+  title: Multi-Status
+  occurrences: 1
+  descriptions:
+  - Partial success - some terms created, some failed
+  remediation: A batch request completed with a mix of successes and failures; inspect
+    each item status.
+  example_operation: POST /translation/glossaries/{id}/terms/bulk
+- status: 400
+  title: Bad Request
+  occurrences: 23
+  descriptions:
+  - Bad request
+  - Bad request - all terms failed or validation error
+  - Bad request - invalid file format or missing required fields
+  - Bad request - missing organizationId
+  - File is not ready for download
+  - Invalid input (validation error).
+  - Invalid input or video not found
+  - Invalid request body
+  remediation: Validate the request body and query parameters against the OpenAPI
+    schema.
+  example_operation: POST /translation/glossaries
+- status: 401
+  title: Unauthorized
+  occurrences: 38
+  descriptions:
+  - Unauthorized
+  - Unauthorized (invalid API key)
+  - Unauthorized (invalid API key).
+  - Unauthorized - Invalid or missing API key
+  remediation: Check that your API key is correct and set in the X-Api-Key header.
+  example_operation: GET /translation/glossaries
+- status: 402
+  title: Payment Required
+  occurrences: 4
+  descriptions:
+  - Payment required - quota exceeded
+  - Payment required - quota exceeded or unpaid invoice
+  remediation: Insufficient AI credits/word balance. Top up credits or upgrade your
+    plan at https://algebras.ai/pricing.
+  example_operation: POST /translation/translate-batch
+- status: 404
+  title: Not Found
+  occurrences: 16
+  descriptions:
+  - Agentic translation task not found
+  - Glossary not found
+  - Localization not found
+  - Localization not found or file not found in storage
+  - Public link not found
+  - Public link or stream not found
+  - Stream session not found
+  - Term not found
+  remediation: The referenced resource (glossary, term, localization, or stream) does
+    not exist.
+  example_operation: GET /translation/glossaries/{id}
+- status: 410
+  title: Gone
+  occurrences: 3
+  descriptions:
+  - Public link has expired
+  remediation: The resource is no longer available (e.g. an expired localization download
+    URL or a stopped stream).
+  example_operation: GET /public/live/{publicId}/stats
+- status: 429
+  title: Too Many Requests
+  occurrences: 2
+  descriptions:
+  - Too Many Requests - Rate limit exceeded
+  - Too many requests
+  remediation: Rate limit exceeded. Back off and retry with exponential backoff.
+  example_operation: POST /translation/languages/detect
+- status: 500
+  title: Internal Server Error
+  occurrences: 37
+  descriptions:
+  - Internal server error
+  - Internal server error.
+  remediation: A server-side error occurred. Retry idempotent reads; contact support@algebras.ai
+    if it persists.
+  example_operation: GET /translation/glossaries

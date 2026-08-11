@@ -193,6 +193,8 @@ apis:
   - type: GettingStarted
     url: https://docs.algebras.ai/general/getting-started/
 common:
+- type: Overlay
+  url: overlays/algebras-ai-inc-openapi-overlay.yaml
 - type: DeveloperPortal
   url: https://platform.algebras.ai
 - type: Documentation

@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Translation API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Translation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Translate multiple texts in batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/translate-batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Translates multiple texts with the same translation settings."
+        },
+        {
+          "info": {
+            "name": "Translate text or files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/translate",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "sourceLanguage",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "targetLanguage",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "textContent",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "fileContent",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "glossaryId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "prompt",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "flag",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ignoreCache",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "fluency",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Translates the given text or files into the target language."
+        },
+        {
+          "info": {
+            "name": "Evaluate fluency of multiple translations in batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/fluency-batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Evaluates the fluency of up to 20 translation pairs concurrently. Individual item failures do not abort the whole batch."
+        },
+        {
+          "info": {
+            "name": "Evaluate translation fluency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/fluency",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Evaluates the fluency of a translation and provides improvement feedback."
+        },
+        {
+          "info": {
+            "name": "Start an agentic translation task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/agentic-translate",
+            "headers": [
+              {
+                "name": "X-Webhook-Url",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates an asynchronous agentic translation task and returns a task ID for status tracking."
+        },
+        {
+          "info": {
+            "name": "Get agentic translation task status by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/agentic-translate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the agentic translation task"
+              }
+            ]
+          },
+          "docs": "Retrieves the status and result of a specific agentic translation task by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

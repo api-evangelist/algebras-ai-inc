@@ -12,47 +12,51 @@ server:
     value_env: ALGEBRAS_API_KEY
 install:
   claude_code:
-    - /plugin marketplace add algebras-ai/algebras-agent
-    - /plugin install algebras-agent@algebras-agent
-    - /algebras-agent:setup
+  - /plugin marketplace add algebras-ai/algebras-agent
+  - /plugin install algebras-agent@algebras-agent
+  - /algebras-agent:setup
   generic: curl -fsSL https://platform.algebras.ai/install | bash
-client_support: [Claude Code, Cursor, Codex, Windsurf, GitHub Copilot]
-config_example: |
-  {
-    "mcpServers": {
-      "algebras": {
-        "url": "https://platform.algebras.ai/api/mcp",
-        "headers": { "x-api-key": "YOUR_ALGEBRAS_API_KEY" }
-      }
-    }
-  }
-tools_note: >-
-  Algebras publishes a hosted, authenticated MCP endpoint at /api/mcp; the exact tool
-  list is served at runtime after API-key auth and is not enumerable anonymously. The
-  candidate tools below are DERIVED from the public OpenAPI operations as a reference,
-  not a verbatim capture of the live server manifest.
+client_support:
+- Claude Code
+- Cursor
+- Codex
+- Windsurf
+- GitHub Copilot
+config_example: "{\n  \"mcpServers\": {\n    \"algebras\": {\n      \"url\": \"https://platform.algebras.ai/api/mcp\"\
+  ,\n      \"headers\": { \"x-api-key\": \"YOUR_ALGEBRAS_API_KEY\" }\n    }\n  }\n}\n"
+tools_note: Algebras publishes a hosted, authenticated MCP endpoint at /api/mcp; the exact tool list is
+  served at runtime after API-key auth and is not enumerable anonymously. The candidate tools below are
+  DERIVED from the public OpenAPI operations as a reference, not a verbatim capture of the live server
+  manifest.
 tools:
-  - name: translate_text
-    description: Translate text or files between languages.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/translate
-  - name: translate_batch
-    description: Translate multiple texts in a single batch.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/translate-batch
-  - name: agentic_translate
-    description: Start an agentic (multi-step, QA-aware) translation task.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/agentic-translate
-  - name: detect_language
-    description: Detect the language of provided text.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/languages/detect
-  - name: list_languages
-    description: List supported languages.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#GET /translation/languages
-  - name: evaluate_fluency
-    description: Evaluate the fluency of a translation.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/fluency
-  - name: create_glossary
-    description: Create a translation glossary.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/glossaries
-  - name: generate_localization_table
-    description: Generate a localization table asynchronously.
-    source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/localization-table
+- name: translate_text
+  description: Translate text or files between languages.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/translate
+- name: translate_batch
+  description: Translate multiple texts in a single batch.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/translate-batch
+- name: agentic_translate
+  description: Start an agentic (multi-step, QA-aware) translation task.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/agentic-translate
+- name: detect_language
+  description: Detect the language of provided text.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/languages/detect
+- name: list_languages
+  description: List supported languages.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#GET /translation/languages
+- name: evaluate_fluency
+  description: Evaluate the fluency of a translation.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/fluency
+- name: create_glossary
+  description: Create a translation glossary.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/glossaries
+- name: generate_localization_table
+  description: Generate a localization table asynchronously.
+  source_operation: openapi/algebras-ai-inc-openapi-original.json#POST /translation/localization-table
+deployment:
+  mode: remote
+  endpoint: https://platform.algebras.ai/api/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

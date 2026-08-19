@@ -1,0 +1,3754 @@
+{
+  "item": [
+    {
+      "id": "4bca27fa-dde4-439a-9296-1e6f73091c96",
+      "name": "Glossaries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f68306e7-2629-469e-96e9-60b215d8ad72",
+          "name": "List all glossaries",
+          "request": {
+            "name": "List all glossaries",
+            "description": {
+              "content": "Retrieves a paginated list of all glossaries for the organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Number of items per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "224d287d-58cb-485e-8ae2-81ba6ec27730",
+              "name": "Glossaries retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"2018-06-17T21:26:09.130Z\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"Technical Terms\",\n      \"organizationId\": \"string\",\n      \"status\": \"CREATING\",\n      \"createdAt\": \"1979-06-14T18:55:39.201Z\",\n      \"updatedAt\": \"1960-10-27T16:50:34.436Z\",\n      \"languages\": [\n        {\n          \"language\": \"en\",\n          \"createdAt\": \"1951-10-17T21:25:19.229Z\",\n          \"updatedAt\": \"2021-04-29T03:39:48.535Z\"\n        },\n        {\n          \"language\": \"en\",\n          \"createdAt\": \"1991-12-17T00:59:43.093Z\",\n          \"updatedAt\": \"1997-01-31T17:39:46.137Z\"\n        }\n      ],\n      \"terms\": [\n        {\n          \"id\": \"string\",\n          \"glossaryId\": \"string\",\n          \"translationFlag\": true,\n          \"createdAt\": \"1968-11-21T00:06:09.492Z\",\n          \"updatedAt\": \"1972-04-04T19:26:25.064Z\",\n          \"definitions\": {\n            \"type\": \"array\",\n            \"description\": \"Definitions of the term in different languages\",\n            \"maxItems\": 2,\n            \"items\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"language\",\n                \"term\",\n                \"definition\",\n                \"createdAt\",\n                \"updatedAt\"\n              ],\n              \"properties\": {\n                \"language\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"term\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"definition\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"createdAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"updatedAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            }\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"glossaryId\": \"string\",\n          \"translationFlag\": false,\n          \"createdAt\": \"2018-05-28T07:35:02.095Z\",\n          \"updatedAt\": \"1949-04-20T14:33:03.362Z\",\n          \"definitions\": {\n            \"type\": \"array\",\n            \"description\": \"Definitions of the term in different languages\",\n            \"maxItems\": 2,\n            \"items\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"language\",\n                \"term\",\n                \"definition\",\n                \"createdAt\",\n                \"updatedAt\"\n              ],\n              \"properties\": {\n                \"language\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"term\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"definition\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"createdAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"updatedAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"Technical Terms\",\n      \"organizationId\": \"string\",\n      \"status\": \"UPDATING\",\n      \"createdAt\": \"2014-02-26T04:18:31.426Z\",\n      \"updatedAt\": \"1947-04-17T19:25:52.936Z\",\n      \"languages\": [\n        {\n          \"language\": \"en\",\n          \"createdAt\": \"1960-06-24T03:39:53.957Z\",\n          \"updatedAt\": \"2015-12-07T08:48:22.403Z\"\n        },\n        {\n          \"language\": \"en\",\n          \"createdAt\": \"1975-03-05T03:49:22.367Z\",\n          \"updatedAt\": \"2014-09-13T19:57:06.277Z\"\n        }\n      ],\n      \"terms\": [\n        {\n          \"id\": \"string\",\n          \"glossaryId\": \"string\",\n          \"translationFlag\": true,\n          \"createdAt\": \"2002-11-18T10:00:53.250Z\",\n          \"updatedAt\": \"1970-02-01T07:42:16.167Z\",\n          \"definitions\": {\n            \"type\": \"array\",\n            \"description\": \"Definitions of the term in different languages\",\n            \"maxItems\": 2,\n            \"items\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"language\",\n                \"term\",\n                \"definition\",\n                \"createdAt\",\n                \"updatedAt\"\n              ],\n              \"properties\": {\n                \"language\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"term\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"definition\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"createdAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"updatedAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            }\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"glossaryId\": \"string\",\n          \"translationFlag\": true,\n          \"createdAt\": \"2007-02-23T17:56:07.354Z\",\n          \"updatedAt\": \"1996-07-07T20:11:27.159Z\",\n          \"definitions\": {\n            \"type\": \"array\",\n            \"description\": \"Definitions of the term in different languages\",\n            \"maxItems\": 2,\n            \"items\": {\n              \"type\": \"object\",\n              \"required\": [\n                \"language\",\n                \"term\",\n                \"definition\",\n                \"createdAt\",\n                \"updatedAt\"\n              ],\n              \"properties\": {\n                \"language\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"term\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"definition\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"createdAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"updatedAt\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"pagination\": {\n    \"page\": 8252,\n    \"limit\": 9388,\n    \"total\": 3612,\n    \"totalPages\": 8664\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f51d7b80-b918-4c2e-9493-7c4d634e7ed9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "756132b0-61f5-47fc-893b-4fc56b3e0a4b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e67d5d2-5ca2-4217-883a-6539eed0dce4",
+          "name": "Create a new glossary",
+          "request": {
+            "name": "Create a new glossary",
+            "description": {
+              "content": "Creates a new glossary with the specified name and languages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"languages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7113cfa0-8712-46a7-b1fd-d1890dd6def0",
+              "name": "Glossary created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1996-10-31T04:35:07.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"name\": \"Technical Terms\",\n    \"organizationId\": \"string\",\n    \"status\": \"ERROR\",\n    \"createdAt\": \"2009-03-19T10:32:48.150Z\",\n    \"updatedAt\": \"1961-04-09T14:38:58.065Z\",\n    \"languages\": [\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"2023-05-31T12:14:29.823Z\",\n        \"updatedAt\": \"1990-10-07T21:47:54.744Z\"\n      },\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"1960-06-29T19:09:50.761Z\",\n        \"updatedAt\": \"1956-12-14T03:10:55.889Z\"\n      }\n    ],\n    \"terms\": [\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1973-02-09T19:48:03.258Z\",\n        \"updatedAt\": \"2003-11-03T19:18:28.457Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1998-06-25T14:21:49.926Z\",\n        \"updatedAt\": \"1988-01-08T10:44:03.159Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6c44c6c-41fb-410b-9a0b-8dfbeefbf452",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27d3992b-3515-4a42-8b99-85e24c81ce2a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56cf8194-1a9b-451e-9c5b-7c14316190de",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fe524e1-e6f7-4f9c-9a7e-f181e6909663",
+          "name": "Get glossary by ID",
+          "request": {
+            "name": "Get glossary by ID",
+            "description": {
+              "content": "Retrieves a specific glossary with all its terms and definitions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cffe2b10-a0d2-46b4-a91c-f03bd86c5883",
+              "name": "Glossary retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1996-10-31T04:35:07.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"name\": \"Technical Terms\",\n    \"organizationId\": \"string\",\n    \"status\": \"ERROR\",\n    \"createdAt\": \"2009-03-19T10:32:48.150Z\",\n    \"updatedAt\": \"1961-04-09T14:38:58.065Z\",\n    \"languages\": [\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"2023-05-31T12:14:29.823Z\",\n        \"updatedAt\": \"1990-10-07T21:47:54.744Z\"\n      },\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"1960-06-29T19:09:50.761Z\",\n        \"updatedAt\": \"1956-12-14T03:10:55.889Z\"\n      }\n    ],\n    \"terms\": [\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1973-02-09T19:48:03.258Z\",\n        \"updatedAt\": \"2003-11-03T19:18:28.457Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1998-06-25T14:21:49.926Z\",\n        \"updatedAt\": \"1988-01-08T10:44:03.159Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cea3cfc-f864-4b12-aee6-a4d366efda65",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dfd4a0a-fe30-4a8c-8a97-1460a6afcd3e",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f459e2f-31b6-4a30-9608-18e3d64c440e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99b9d6b5-f45e-4cad-908a-349936e4296e",
+          "name": "Update glossary",
+          "request": {
+            "name": "Update glossary",
+            "description": {
+              "content": "Updates a glossary's name and languages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"languages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b25afdf9-3028-458a-9565-a27e90ef2929",
+              "name": "Glossary updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\",\n    \"de\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1996-10-31T04:35:07.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"name\": \"Technical Terms\",\n    \"organizationId\": \"string\",\n    \"status\": \"ERROR\",\n    \"createdAt\": \"2009-03-19T10:32:48.150Z\",\n    \"updatedAt\": \"1961-04-09T14:38:58.065Z\",\n    \"languages\": [\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"2023-05-31T12:14:29.823Z\",\n        \"updatedAt\": \"1990-10-07T21:47:54.744Z\"\n      },\n      {\n        \"language\": \"en\",\n        \"createdAt\": \"1960-06-29T19:09:50.761Z\",\n        \"updatedAt\": \"1956-12-14T03:10:55.889Z\"\n      }\n    ],\n    \"terms\": [\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1973-02-09T19:48:03.258Z\",\n        \"updatedAt\": \"2003-11-03T19:18:28.457Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": false,\n        \"createdAt\": \"1998-06-25T14:21:49.926Z\",\n        \"updatedAt\": \"1988-01-08T10:44:03.159Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d345b4d-d30d-4473-b407-e421a947a371",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\",\n    \"de\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db8cb29f-208c-45d2-b0cd-8152cf37a1fe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\",\n    \"de\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c123d15-2a7f-4b5d-b058-8a4e5acbc57f",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\",\n    \"de\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4557ef97-beba-4f20-85e3-bb0b83412dea",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated Technical Terms\",\n  \"languages\": [\n    \"en\",\n    \"es\",\n    \"fr\",\n    \"de\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de54e8e5-69cd-4a9c-ba78-60ccc95276b4",
+          "name": "Delete glossary",
+          "request": {
+            "name": "Delete glossary",
+            "description": {
+              "content": "Deletes a glossary and all its terms and definitions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d06b1fa-87a4-4331-8ce3-61ff585b1399",
+              "name": "Glossary deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"2013-12-29T06:16:08.502Z\",\n  \"data\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ff65a3d-d8ba-48fa-82c6-faa1f47853bc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25022073-1fc5-4e12-9b38-efdbc426b35a",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f4b371f-de54-4696-8239-a7910ce38478",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf75bd3-5e7e-478b-944f-c50e7b12ab9f",
+          "name": "List terms for glossary",
+          "request": {
+            "name": "List terms for glossary",
+            "description": {
+              "content": "Retrieves a paginated list of all terms for a specific glossary",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Number of items per page"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5571d27-f46e-4562-bc7b-e25497417004",
+              "name": "Terms retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"2002-08-26T10:44:58.948Z\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"glossaryId\": \"string\",\n      \"translationFlag\": true,\n      \"createdAt\": \"1996-04-02T07:00:01.185Z\",\n      \"updatedAt\": \"1956-05-18T19:19:51.842Z\",\n      \"definitions\": {\n        \"type\": \"array\",\n        \"description\": \"Definitions of the term in different languages\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\",\n            \"createdAt\",\n            \"updatedAt\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\"\n            },\n            \"createdAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was created\"\n            },\n            \"updatedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was last updated\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"glossaryId\": \"string\",\n      \"translationFlag\": false,\n      \"createdAt\": \"2002-05-06T04:27:04.232Z\",\n      \"updatedAt\": \"1970-06-30T12:32:38.009Z\",\n      \"definitions\": {\n        \"type\": \"array\",\n        \"description\": \"Definitions of the term in different languages\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\",\n            \"createdAt\",\n            \"updatedAt\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\"\n            },\n            \"createdAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was created\"\n            },\n            \"updatedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was last updated\"\n            }\n          }\n        }\n      }\n    }\n  ],\n  \"pagination\": {\n    \"page\": 5334,\n    \"limit\": 645,\n    \"total\": 4304,\n    \"totalPages\": 7467\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd5dc7c9-4cdd-4d31-9535-5e6006ee71f5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac729d9a-7d48-4c6f-8351-39a38697a1c1",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1dc162c9-48ad-4240-9dfd-70d180ef9e6f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d690d00e-1e5d-4554-b3c1-417d172ef456",
+          "name": "Create single term with definitions",
+          "request": {
+            "name": "Create single term with definitions",
+            "description": {
+              "content": "Creates a single term with definitions for multiple languages. All definitions belong to the same GlossaryTerm instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea27f7b5-60e5-44a0-bfe5-2276d93da920",
+              "name": "Term created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1997-06-13T03:23:25.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"glossaryId\": \"string\",\n    \"translationFlag\": false,\n    \"createdAt\": \"1995-02-12T23:24:54.873Z\",\n    \"updatedAt\": \"1966-04-12T01:47:53.966Z\",\n    \"definitions\": {\n      \"type\": \"array\",\n      \"description\": \"Definitions of the term in different languages\",\n      \"maxItems\": 2,\n      \"minItems\": 2,\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"language\",\n          \"term\",\n          \"definition\",\n          \"createdAt\",\n          \"updatedAt\"\n        ],\n        \"properties\": {\n          \"language\": {\n            \"type\": \"string\",\n            \"description\": \"Language code\",\n            \"example\": \"en\"\n          },\n          \"term\": {\n            \"type\": \"string\",\n            \"description\": \"The term text\",\n            \"example\": \"API\"\n          },\n          \"definition\": {\n            \"type\": \"string\",\n            \"description\": \"Definition of the term\",\n            \"example\": \"Application Programming Interface\"\n          },\n          \"createdAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was created\"\n          },\n          \"updatedAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was last updated\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef7ae4f2-9584-4280-af75-2c29f91d6a7f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40d154a1-43b8-4431-aa9d-cf40f8dbcf28",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2dfd2bc-e467-424e-860f-e68870da6655",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6bfdfaee-53b8-4ae8-bcc0-5a7eeb383ad9",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\",\n        \"term\",\n        \"definition\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afa3d540-7992-4a03-a647-f2610ebfd9d4",
+          "name": "Create multiple terms with definitions",
+          "request": {
+            "name": "Create multiple terms with definitions",
+            "description": {
+              "content": "Creates multiple terms, each with definitions for multiple languages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ff54d34-48bc-4d1b-ad4b-72a2c3914486",
+              "name": "All terms created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"2004-09-09T21:52:11.693Z\",\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"glossaryId\": \"string\",\n      \"translationFlag\": true,\n      \"createdAt\": \"1967-01-04T19:49:54.215Z\",\n      \"updatedAt\": \"2025-08-11T05:04:34.822Z\",\n      \"definitions\": {\n        \"type\": \"array\",\n        \"description\": \"Definitions of the term in different languages\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\",\n            \"createdAt\",\n            \"updatedAt\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\"\n            },\n            \"createdAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was created\"\n            },\n            \"updatedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was last updated\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"glossaryId\": \"string\",\n      \"translationFlag\": true,\n      \"createdAt\": \"1968-11-07T20:49:48.032Z\",\n      \"updatedAt\": \"1963-03-29T16:26:38.519Z\",\n      \"definitions\": {\n        \"type\": \"array\",\n        \"description\": \"Definitions of the term in different languages\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\",\n            \"createdAt\",\n            \"updatedAt\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\"\n            },\n            \"createdAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was created\"\n            },\n            \"updatedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\",\n              \"description\": \"When the definition was last updated\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0de02e95-5d46-47e4-b3b1-c850a612e0ee",
+              "name": "Partial success - some terms created, some failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Multi-Status (WebDAV) (RFC 4918)",
+              "code": 207,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"partial_success\",\n  \"timestamp\": \"2006-10-05T09:41:08.295Z\",\n  \"data\": {\n    \"successful\": [\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": true,\n        \"createdAt\": \"1976-04-07T01:52:39.495Z\",\n        \"updatedAt\": \"1978-10-05T05:51:03.031Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"glossaryId\": \"string\",\n        \"translationFlag\": true,\n        \"createdAt\": \"1973-12-30T05:40:12.980Z\",\n        \"updatedAt\": \"2009-11-02T19:14:14.822Z\",\n        \"definitions\": {\n          \"type\": \"array\",\n          \"description\": \"Definitions of the term in different languages\",\n          \"maxItems\": 2,\n          \"minItems\": 2,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"language\",\n              \"term\",\n              \"definition\",\n              \"createdAt\",\n              \"updatedAt\"\n            ],\n            \"properties\": {\n              \"language\": {\n                \"type\": \"string\",\n                \"description\": \"Language code\",\n                \"example\": \"en\"\n              },\n              \"term\": {\n                \"type\": \"string\",\n                \"description\": \"The term text\",\n                \"example\": \"API\"\n              },\n              \"definition\": {\n                \"type\": \"string\",\n                \"description\": \"Definition of the term\",\n                \"example\": \"Application Programming Interface\"\n              },\n              \"createdAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was created\"\n              },\n              \"updatedAt\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"When the definition was last updated\"\n              }\n            }\n          }\n        }\n      }\n    ],\n    \"failed\": [\n      {\n        \"index\": 7259,\n        \"error\": \"string\",\n        \"details\": \"string\"\n      },\n      {\n        \"index\": 2673,\n        \"error\": \"string\",\n        \"details\": \"string\"\n      }\n    ],\n    \"successCount\": 6294,\n    \"failedCount\": 5461\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54ed52bd-cc78-4499-b1ff-eafa1dd8c1ff",
+              "name": "Bad request - all terms failed or validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2022-04-13T18:06:16.943Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"details\": [\n      {\n        \"index\": 6794,\n        \"error\": \"string\",\n        \"details\": \"string\"\n      },\n      {\n        \"index\": 8818,\n        \"error\": \"string\",\n        \"details\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60f1edd7-34a5-41b0-b591-186a628404a7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ba167ed-e112-4be9-8609-3a40ab83006e",
+              "name": "Glossary not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48a08c61-2706-4556-8adb-a7ede0d1f7de",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"terms\": [\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"definitions\": {\n        \"type\": \"array\",\n        \"maxItems\": 2,\n        \"minItems\": 2,\n        \"items\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"language\",\n            \"term\",\n            \"definition\"\n          ],\n          \"properties\": {\n            \"language\": {\n              \"type\": \"string\",\n              \"description\": \"Language code\",\n              \"example\": \"en\",\n              \"default\": \"<string>\"\n            },\n            \"term\": {\n              \"type\": \"string\",\n              \"description\": \"The term text\",\n              \"example\": \"API\",\n              \"default\": \"<string>\"\n            },\n            \"definition\": {\n              \"type\": \"string\",\n              \"description\": \"Definition of the term\",\n              \"example\": \"Application Programming Interface\",\n              \"default\": \"<string>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90b58dbe-05f0-4ca3-9481-87bb4fdc7b48",
+          "name": "Get term by ID",
+          "request": {
+            "name": "Get term by ID",
+            "description": {
+              "content": "Retrieves a specific term with all its definitions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms",
+                ":termId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "termId",
+                  "description": "(Required) Term ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50661059-6806-4151-a1cc-c66417fe7341",
+              "name": "Term retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1997-06-13T03:23:25.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"glossaryId\": \"string\",\n    \"translationFlag\": false,\n    \"createdAt\": \"1995-02-12T23:24:54.873Z\",\n    \"updatedAt\": \"1966-04-12T01:47:53.966Z\",\n    \"definitions\": {\n      \"type\": \"array\",\n      \"description\": \"Definitions of the term in different languages\",\n      \"maxItems\": 2,\n      \"minItems\": 2,\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"language\",\n          \"term\",\n          \"definition\",\n          \"createdAt\",\n          \"updatedAt\"\n        ],\n        \"properties\": {\n          \"language\": {\n            \"type\": \"string\",\n            \"description\": \"Language code\",\n            \"example\": \"en\"\n          },\n          \"term\": {\n            \"type\": \"string\",\n            \"description\": \"The term text\",\n            \"example\": \"API\"\n          },\n          \"definition\": {\n            \"type\": \"string\",\n            \"description\": \"Definition of the term\",\n            \"example\": \"Application Programming Interface\"\n          },\n          \"createdAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was created\"\n          },\n          \"updatedAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was last updated\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ff2b71f-9c19-413e-8bff-f9266cd3e8c0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69d9c9ab-7c82-449b-88c0-97e780f04918",
+              "name": "Term not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "469bff1a-6c4c-48b4-9d9c-11025192965f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6318e221-d6dd-48ec-9a36-185c4822b536",
+          "name": "Update term definitions",
+          "request": {
+            "name": "Update term definitions",
+            "description": {
+              "content": "Updates a term's definitions for different languages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms",
+                ":termId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "termId",
+                  "description": "(Required) Term ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2cdfcd68-e8ab-421f-87a2-f4869173c496",
+              "name": "Term updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1997-06-13T03:23:25.010Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"glossaryId\": \"string\",\n    \"translationFlag\": false,\n    \"createdAt\": \"1995-02-12T23:24:54.873Z\",\n    \"updatedAt\": \"1966-04-12T01:47:53.966Z\",\n    \"definitions\": {\n      \"type\": \"array\",\n      \"description\": \"Definitions of the term in different languages\",\n      \"maxItems\": 2,\n      \"minItems\": 2,\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"language\",\n          \"term\",\n          \"definition\",\n          \"createdAt\",\n          \"updatedAt\"\n        ],\n        \"properties\": {\n          \"language\": {\n            \"type\": \"string\",\n            \"description\": \"Language code\",\n            \"example\": \"en\"\n          },\n          \"term\": {\n            \"type\": \"string\",\n            \"description\": \"The term text\",\n            \"example\": \"API\"\n          },\n          \"definition\": {\n            \"type\": \"string\",\n            \"description\": \"Definition of the term\",\n            \"example\": \"Application Programming Interface\"\n          },\n          \"createdAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was created\"\n          },\n          \"updatedAt\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"When the definition was last updated\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f83a59e-64d2-4ff6-bdf6-9f36c311d0b9",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8451b21d-8cdf-40ba-b9c6-bbe03d85a5f0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc2572b9-f44b-403c-a73d-f4aac3e6369b",
+              "name": "Term not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4aa2170-b108-4f6e-b2a9-0c55fb4b4fbf",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"minItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"language\"\n      ],\n      \"properties\": {\n        \"language\": {\n          \"type\": \"string\",\n          \"description\": \"Language code\",\n          \"example\": \"en\",\n          \"default\": \"<string>\"\n        },\n        \"term\": {\n          \"type\": \"string\",\n          \"description\": \"The term text\",\n          \"example\": \"API\",\n          \"default\": \"<string>\"\n        },\n        \"definition\": {\n          \"type\": \"string\",\n          \"description\": \"Definition of the term\",\n          \"example\": \"Application Programming Interface\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b068e78-515b-4a27-877c-022d38a0132c",
+          "name": "Delete term",
+          "request": {
+            "name": "Delete term",
+            "description": {
+              "content": "Deletes a term and all its definitions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                ":id",
+                "terms",
+                ":termId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "termId",
+                  "description": "(Required) Term ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab9d658d-2a8e-43b1-9286-31e18b6a0354",
+              "name": "Term deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1967-02-11T19:16:43.266Z\",\n  \"data\": {\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df79d333-3fc1-4006-8a0f-8fd3828b1327",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a822d66e-ceca-437c-accf-9129ac8086e8",
+              "name": "Term not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6776c802-093e-4d30-9cd2-1e5e26dd5859",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    ":id",
+                    "terms",
+                    ":termId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "termId",
+                      "description": "(Required) Term ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ee396d1-3d2a-4c83-b47e-301c474703bd",
+          "name": "Get glossary status updates",
+          "request": {
+            "name": "Get glossary status updates",
+            "description": {
+              "content": "Streams real-time status updates for all glossaries in the organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                "updates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1fae3cf-9b23-4384-8493-448e3de9a7a9",
+              "name": "Server-sent events stream with glossary status updates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74f240a3-7067-431c-8e36-a7ec14ab0a11",
+              "name": "Bad request - missing organizationId",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ada37711-8931-4e4e-a799-952697275783",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b5b91c-b166-4316-a5f0-6099eef6f292",
+          "name": "Get specific glossary status updates",
+          "request": {
+            "name": "Get specific glossary status updates",
+            "description": {
+              "content": "Streams real-time status updates for a specific glossary",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "glossaries",
+                "updates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Glossary ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db104a67-e70a-4e05-898b-f35ce8ac7b93",
+              "name": "Server-sent events stream with glossary status updates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea46cf3b-ac3e-4551-887e-175e95b5893e",
+              "name": "Bad request - missing organizationId",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75f54642-7ab3-4dce-9e14-bd156ac7aa13",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "glossaries",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Glossary ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://platform.algebras.ai/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "48a84b09-7624-45fc-9e5d-dd5e7f2a9535",
+    "name": "Algebras Authentication Glossaries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Video API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start translation of an uploaded video file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/video/translate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts the video translation process for a video that was previously uploaded to storage. The video must be in UPLOADED or READY status. This will extract audio, transcribe it, translate the transcription, synthesize new audio, and create the final translated video.\n"
+        },
+        {
+          "info": {
+            "name": "Update video upload status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/video/status/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the status of a video after upload completion or failure. Used to mark video as UPLOADED after successful upload to storage bucket, or FAILED if upload failed. Only UPLOADED and FAILED statuses can be set through this endpoint.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,364 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Realtime API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Realtime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List realtime stream sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/live",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns all realtime stream sessions for the API key organization."
+        },
+        {
+          "info": {
+            "name": "Create a realtime stream session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a realtime stream session for the API key organization."
+        },
+        {
+          "info": {
+            "name": "Get a realtime stream session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a single realtime stream session by ID."
+        },
+        {
+          "info": {
+            "name": "Stop a realtime speaker room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/stop",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Closes the speaker room and all listener rooms associated with the stream."
+        },
+        {
+          "info": {
+            "name": "Stream realtime stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/stats",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Streams realtime speaker/listener status updates for a stream session. API key authentication is supported for external clients; session authentication remains supported for the dashboard."
+        },
+        {
+          "info": {
+            "name": "Start a realtime speaker room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/start",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates or reuses the speaker room and returns a LiveKit token for publishing audio into the stream."
+        },
+        {
+          "info": {
+            "name": "Get RTMP ingress credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/rtmp-ingress",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the current RTMP ingress credentials for a realtime stream, if any exist."
+        },
+        {
+          "info": {
+            "name": "Create RTMP ingress credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/rtmp-ingress",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a new RTMP ingress for a realtime stream. If one already exists, it is rotated."
+        },
+        {
+          "info": {
+            "name": "Delete RTMP ingress credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/rtmp-ingress",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Deletes the RTMP ingress and clears any saved ingress credentials for the realtime stream."
+        },
+        {
+          "info": {
+            "name": "Generate a public listener link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/live/:streamId/public-links",
+            "params": [
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "path",
+                "description": "Stream session ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates or reactivates a public listener link for a realtime stream."
+        },
+        {
+          "info": {
+            "name": "Public realtime stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/public/live/:publicId/stats",
+            "params": [
+              {
+                "name": "publicId",
+                "value": "",
+                "type": "path",
+                "description": "Public listener link ID"
+              }
+            ]
+          },
+          "docs": "Streams realtime speaker/listener status updates for a public live link."
+        },
+        {
+          "info": {
+            "name": "Start RTMP egress for a public listener room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/public/live/:publicId/egress",
+            "params": [
+              {
+                "name": "publicId",
+                "value": "",
+                "type": "path",
+                "description": "Public listener link ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts audio-only RTMP egress for the translated listener room represented by the public link."
+        },
+        {
+          "info": {
+            "name": "Stop RTMP egress",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://platform.algebras.ai/api/v1/public/live/:publicId/egress/:egressId",
+            "params": [
+              {
+                "name": "publicId",
+                "value": "",
+                "type": "path",
+                "description": "Public listener link ID"
+              },
+              {
+                "name": "egressId",
+                "value": "",
+                "type": "path",
+                "description": "LiveKit egress ID"
+              }
+            ]
+          },
+          "docs": "Stops a previously started RTMP egress session for a public listener room."
+        },
+        {
+          "info": {
+            "name": "Resolve a public listener connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/public/live/:publicId/connection",
+            "params": [
+              {
+                "name": "publicId",
+                "value": "",
+                "type": "path",
+                "description": "Public listener link ID"
+              },
+              {
+                "name": "targetLang",
+                "value": "",
+                "type": "query",
+                "description": "Preferred target language code for the listener room"
+              }
+            ]
+          },
+          "docs": "Resolves a public listener link into a LiveKit connection payload for joining a translated listener room."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Languages API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Languages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Languages endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/languages"
+          },
+          "docs": "Returns the list of supported languages"
+        },
+        {
+          "info": {
+            "name": "Detect language of the provided text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/languages/detect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Automatically detects the language of the provided text content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Localization API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Localization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get localization history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/localization-table"
+          },
+          "docs": "Retrieves the history of all localization jobs for the organization, ordered by creation date (newest first)."
+        },
+        {
+          "info": {
+            "name": "Generate localization table (async)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/localization-table",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "glossaryId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "prompt",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "isAgentic",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ignoreCache",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates a new localization table job. This is an asynchronous operation that returns immediately with a job ID and status."
+        },
+        {
+          "info": {
+            "name": "Get localization by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/localization-table/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the localization job"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific localization job by its ID. If status is READY, includes a signed download URL."
+        },
+        {
+          "info": {
+            "name": "Get download URL for localization file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/localization-table/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the localization job"
+              }
+            ]
+          },
+          "docs": "Generates a signed URL for downloading the completed localization file. The URL expires in 60 minutes. Only available for files with READY status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

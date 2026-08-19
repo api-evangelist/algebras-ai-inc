@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Algebras Authentication Glossaries API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Glossaries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all glossaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of all glossaries for the organization"
+        },
+        {
+          "info": {
+            "name": "Create a new glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new glossary with the specified name and languages"
+        },
+        {
+          "info": {
+            "name": "Get glossary by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific glossary with all its terms and definitions"
+        },
+        {
+          "info": {
+            "name": "Update glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a glossary's name and languages"
+        },
+        {
+          "info": {
+            "name": "Delete glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ]
+          },
+          "docs": "Deletes a glossary and all its terms and definitions"
+        },
+        {
+          "info": {
+            "name": "List terms for glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of all terms for a specific glossary"
+        },
+        {
+          "info": {
+            "name": "Create single term with definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a single term with definitions for multiple languages. All definitions belong to the same GlossaryTerm instance."
+        },
+        {
+          "info": {
+            "name": "Create multiple terms with definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms/bulk",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple terms, each with definitions for multiple languages"
+        },
+        {
+          "info": {
+            "name": "Get term by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms/:termId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              },
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path",
+                "description": "Term ID"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific term with all its definitions"
+        },
+        {
+          "info": {
+            "name": "Update term definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms/:termId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              },
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path",
+                "description": "Term ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a term's definitions for different languages"
+        },
+        {
+          "info": {
+            "name": "Delete term",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/:id/terms/:termId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              },
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path",
+                "description": "Term ID"
+              }
+            ]
+          },
+          "docs": "Deletes a term and all its definitions"
+        },
+        {
+          "info": {
+            "name": "Get glossary status updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/updates"
+          },
+          "docs": "Streams real-time status updates for all glossaries in the organization"
+        },
+        {
+          "info": {
+            "name": "Get specific glossary status updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://platform.algebras.ai/api/v1/translation/glossaries/updates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Glossary ID"
+              }
+            ]
+          },
+          "docs": "Streams real-time status updates for a specific glossary"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

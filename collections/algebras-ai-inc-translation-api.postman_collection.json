@@ -1,0 +1,2191 @@
+{
+  "item": [
+    {
+      "id": "8235d5ef-effb-4de3-af33-dbaa80f05b56",
+      "name": "Translation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "777302fa-7009-4119-b024-1e1c9a06bc1f",
+          "name": "Translate multiple texts in batch",
+          "request": {
+            "name": "Translate multiple texts in batch",
+            "description": {
+              "content": "Translates multiple texts with the same translation settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "translate-batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"texts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sourceLanguage\": \"<string>\",\n  \"targetLanguage\": \"<string>\",\n  \"contexts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": \"<boolean>\",\n  \"ignoreCache\": \"<boolean>\",\n  \"fluency\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d1599da-6d14-400a-bd46-400aac86321e",
+              "name": "Successful batch translation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"texts\": [\n    \"Hello world\",\n    \"How are you?\",\n    \"Good morning\"\n  ],\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"de\",\n  \"contexts\": [\n    null,\n    \"Mary stutters from excitement\",\n    \"This line appears after a wall collapse\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": false,\n  \"ignoreCache\": false,\n  \"fluency\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1975-03-16T13:06:42.495Z\",\n  \"data\": {\n    \"translations\": [\n      {\n        \"index\": 314.53256053042054,\n        \"content\": \"string\",\n        \"warning\": \"string\",\n        \"error\": \"string\",\n        \"status_code\": 4069.928084099219\n      },\n      {\n        \"index\": 9749.29855782367,\n        \"content\": \"string\",\n        \"warning\": \"string\",\n        \"error\": \"string\",\n        \"status_code\": 8438.096639817972\n      }\n    ],\n    \"fluency\": [\n      {\n        \"index\": 944.3690481368361,\n        \"value\": 5218.286996944987,\n        \"idiomatic\": 8756.94096768217,\n        \"collocational\": 9819.377171617974,\n        \"discourse\": 2208.5388870083966,\n        \"pragmatic\": 6573.048537712686,\n        \"calque\": 7253.037354656402,\n        \"issue_type\": \"string\",\n        \"severity\": \"string\",\n        \"problematic_phrase\": \"string\",\n        \"suggested_fix\": \"string\",\n        \"main_issue\": \"string\"\n      },\n      {\n        \"index\": 825.5572879719531,\n        \"value\": 6778.535320491896,\n        \"idiomatic\": 9523.954795653544,\n        \"collocational\": 7679.351720547512,\n        \"discourse\": 7567.728447499271,\n        \"pragmatic\": 3557.77222918629,\n        \"calque\": 6035.812192703686,\n        \"issue_type\": \"string\",\n        \"severity\": \"string\",\n        \"problematic_phrase\": \"string\",\n        \"suggested_fix\": \"string\",\n        \"main_issue\": \"string\"\n      }\n    ],\n    \"batch_summary\": {\n      \"total\": 5208.510078142053,\n      \"successful\": 3658.9152420580463,\n      \"failed\": 2974.09997228498,\n      \"total_credits\": 9643.024929481002\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a94c8e3-7460-4d08-8b99-c9c815fa1894",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"texts\": [\n    \"Hello world\",\n    \"How are you?\",\n    \"Good morning\"\n  ],\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"de\",\n  \"contexts\": [\n    null,\n    \"Mary stutters from excitement\",\n    \"This line appears after a wall collapse\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": false,\n  \"ignoreCache\": false,\n  \"fluency\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1976-07-14T15:30:25.115Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"issues\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61239aec-059b-4942-9a2d-5699aad20cbe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"texts\": [\n    \"Hello world\",\n    \"How are you?\",\n    \"Good morning\"\n  ],\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"de\",\n  \"contexts\": [\n    null,\n    \"Mary stutters from excitement\",\n    \"This line appears after a wall collapse\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": false,\n  \"ignoreCache\": false,\n  \"fluency\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1999-12-12T14:16:54.660Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13873516-14e8-4673-b5db-72be0569b7c4",
+              "name": "Payment required - quota exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"texts\": [\n    \"Hello world\",\n    \"How are you?\",\n    \"Good morning\"\n  ],\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"de\",\n  \"contexts\": [\n    null,\n    \"Mary stutters from excitement\",\n    \"This line appears after a wall collapse\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": false,\n  \"ignoreCache\": false,\n  \"fluency\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2025-02-24T01:33:47.461Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"quota_exceeded\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26bfa360-91a0-4da4-9ac7-3f9391118e8a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"texts\": [\n    \"Hello world\",\n    \"How are you?\",\n    \"Good morning\"\n  ],\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"de\",\n  \"contexts\": [\n    null,\n    \"Mary stutters from excitement\",\n    \"This line appears after a wall collapse\"\n  ],\n  \"glossaryId\": null,\n  \"prompt\": null,\n  \"flag\": false,\n  \"ignoreCache\": false,\n  \"fluency\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2003-08-04T07:50:00.574Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40074ed9-b706-482a-8518-e3342d2f1419",
+          "name": "Translate text or files",
+          "request": {
+            "name": "Translate text or files",
+            "description": {
+              "content": "Translates the given text or files into the target language.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "sourceLanguage",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The source language (use 'auto' for automatic detection)"
+                },
+                {
+                  "key": "targetLanguage",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The target language for the translation"
+                },
+                {
+                  "key": "textContent",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Text to be translated (mutually exclusive with fileContent)"
+                },
+                {
+                  "key": "glossaryId",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional glossary ID to use for translation"
+                },
+                {
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text",
+                  "description": "Optional prompt to guide translation"
+                },
+                {
+                  "key": "flag",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Optional flag for length preservation"
+                },
+                {
+                  "key": "ignoreCache",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Ignore previous translation results"
+                },
+                {
+                  "key": "fluency",
+                  "value": "false",
+                  "type": "text",
+                  "description": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e8f8fe5-dcb5-4645-a6b4-60fa1234f062",
+              "name": "Successful translation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The source language (use 'auto' for automatic detection)",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceLanguage",
+                      "value": "auto",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The target language for the translation",
+                        "type": "text/plain"
+                      },
+                      "key": "targetLanguage",
+                      "value": "de",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Text to be translated (mutually exclusive with fileContent)",
+                        "type": "text/plain"
+                      },
+                      "key": "textContent",
+                      "value": "Hello world",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional glossary ID to use for translation",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryId",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional prompt to guide translation",
+                        "type": "text/plain"
+                      },
+                      "key": "prompt",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional flag for length preservation",
+                        "type": "text/plain"
+                      },
+                      "key": "flag",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Ignore previous translation results",
+                        "type": "text/plain"
+                      },
+                      "key": "ignoreCache",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)",
+                        "type": "text/plain"
+                      },
+                      "key": "fluency",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1976-12-26T13:31:45.543Z\",\n  \"data\": \"string\",\n  \"fluency\": {\n    \"value\": 2158.0123703683275,\n    \"idiomatic\": 5998.312893745478,\n    \"collocational\": 481.9113363199401,\n    \"discourse\": 6261.597265430837,\n    \"pragmatic\": 4494.96646605366,\n    \"calque\": 2297.12464274763,\n    \"issue_type\": \"string\",\n    \"severity\": \"string\",\n    \"problematic_phrase\": \"string\",\n    \"suggested_fix\": \"string\",\n    \"main_issue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "917dd8a8-19d2-4558-9dd4-98f6a5cfb1f3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The source language (use 'auto' for automatic detection)",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceLanguage",
+                      "value": "auto",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The target language for the translation",
+                        "type": "text/plain"
+                      },
+                      "key": "targetLanguage",
+                      "value": "de",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Text to be translated (mutually exclusive with fileContent)",
+                        "type": "text/plain"
+                      },
+                      "key": "textContent",
+                      "value": "Hello world",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional glossary ID to use for translation",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryId",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional prompt to guide translation",
+                        "type": "text/plain"
+                      },
+                      "key": "prompt",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional flag for length preservation",
+                        "type": "text/plain"
+                      },
+                      "key": "flag",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Ignore previous translation results",
+                        "type": "text/plain"
+                      },
+                      "key": "ignoreCache",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)",
+                        "type": "text/plain"
+                      },
+                      "key": "fluency",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1976-07-14T15:30:25.115Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"issues\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e3fd90e-60b6-406c-8f4c-13642f073c9b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The source language (use 'auto' for automatic detection)",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceLanguage",
+                      "value": "auto",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The target language for the translation",
+                        "type": "text/plain"
+                      },
+                      "key": "targetLanguage",
+                      "value": "de",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Text to be translated (mutually exclusive with fileContent)",
+                        "type": "text/plain"
+                      },
+                      "key": "textContent",
+                      "value": "Hello world",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional glossary ID to use for translation",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryId",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional prompt to guide translation",
+                        "type": "text/plain"
+                      },
+                      "key": "prompt",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional flag for length preservation",
+                        "type": "text/plain"
+                      },
+                      "key": "flag",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Ignore previous translation results",
+                        "type": "text/plain"
+                      },
+                      "key": "ignoreCache",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)",
+                        "type": "text/plain"
+                      },
+                      "key": "fluency",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1999-12-12T14:16:54.660Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2627b7a6-c021-40e2-abab-85542f80de55",
+              "name": "Payment required - quota exceeded or unpaid invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The source language (use 'auto' for automatic detection)",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceLanguage",
+                      "value": "auto",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The target language for the translation",
+                        "type": "text/plain"
+                      },
+                      "key": "targetLanguage",
+                      "value": "de",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Text to be translated (mutually exclusive with fileContent)",
+                        "type": "text/plain"
+                      },
+                      "key": "textContent",
+                      "value": "Hello world",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional glossary ID to use for translation",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryId",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional prompt to guide translation",
+                        "type": "text/plain"
+                      },
+                      "key": "prompt",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional flag for length preservation",
+                        "type": "text/plain"
+                      },
+                      "key": "flag",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Ignore previous translation results",
+                        "type": "text/plain"
+                      },
+                      "key": "ignoreCache",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)",
+                        "type": "text/plain"
+                      },
+                      "key": "fluency",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1976-02-20T01:33:19.105Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"quota_exceeded\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f87a1a03-bc53-4458-9ac1-bbaf5bfec7e3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The source language (use 'auto' for automatic detection)",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceLanguage",
+                      "value": "auto",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The target language for the translation",
+                        "type": "text/plain"
+                      },
+                      "key": "targetLanguage",
+                      "value": "de",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Text to be translated (mutually exclusive with fileContent)",
+                        "type": "text/plain"
+                      },
+                      "key": "textContent",
+                      "value": "Hello world",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional glossary ID to use for translation",
+                        "type": "text/plain"
+                      },
+                      "key": "glossaryId",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional prompt to guide translation",
+                        "type": "text/plain"
+                      },
+                      "key": "prompt",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional flag for length preservation",
+                        "type": "text/plain"
+                      },
+                      "key": "flag",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Ignore previous translation results",
+                        "type": "text/plain"
+                      },
+                      "key": "ignoreCache",
+                      "value": "false",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Evaluate translation fluency in the same LLM call (text-only, skipped for long texts)",
+                        "type": "text/plain"
+                      },
+                      "key": "fluency",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2003-08-04T07:50:00.574Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "356763f2-7af3-4ca6-873c-0c8db7a58d58",
+          "name": "Evaluate fluency of multiple translations in batch",
+          "request": {
+            "name": "Evaluate fluency of multiple translations in batch",
+            "description": {
+              "content": "Evaluates the fluency of up to 20 translation pairs concurrently. Individual item failures do not abort the whole batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "fluency-batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceLang\": \"<string>\",\n  \"targetLang\": \"<string>\",\n  \"items\": [\n    {\n      \"sourceText\": \"<string>\",\n      \"translatedText\": \"<string>\"\n    },\n    {\n      \"sourceText\": \"<string>\",\n      \"translatedText\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7afbc46-58b2-448f-89c4-207ab5e52fd6",
+              "name": "Successful batch fluency evaluation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"items\": [\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    },\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1979-12-28T21:41:40.503Z\",\n  \"data\": {\n    \"evaluations\": [\n      {\n        \"index\": 7580.674014143446,\n        \"fluency\": 8951.505232483905,\n        \"idiomatic\": 2471.4872376070853,\n        \"collocational\": 2454.317834845802,\n        \"discourse\": 2667.3586032462736,\n        \"pragmatic\": 8419.045772796693,\n        \"calque\": 8628.449815064325,\n        \"issue_type\": \"string\",\n        \"severity\": \"string\",\n        \"problematic_phrase\": \"string\",\n        \"suggested_fix\": \"string\",\n        \"main_issue\": \"string\",\n        \"error\": \"string\",\n        \"status_code\": 5278.729814790269\n      },\n      {\n        \"index\": 1804.795539574129,\n        \"fluency\": 411.2927880470185,\n        \"idiomatic\": 1746.2501651537677,\n        \"collocational\": 5557.915941473828,\n        \"discourse\": 6947.633379664146,\n        \"pragmatic\": 3914.740315727281,\n        \"calque\": 8047.590930500183,\n        \"issue_type\": \"string\",\n        \"severity\": \"string\",\n        \"problematic_phrase\": \"string\",\n        \"suggested_fix\": \"string\",\n        \"main_issue\": \"string\",\n        \"error\": \"string\",\n        \"status_code\": 5064.444399293553\n      }\n    ],\n    \"batch_summary\": {\n      \"total\": 4085.0036689720214,\n      \"successful\": 4230.1659110564715,\n      \"failed\": 1955.9871841231225\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ade5e89-6905-4419-95f7-273e7e4fcf10",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"items\": [\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    },\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26648c6b-92b2-406c-b082-1bf97e53f276",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"items\": [\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    },\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e2338d9-a609-427e-a42f-dd3a2455f562",
+              "name": "Payment required - quota exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"items\": [\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    },\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "245dd61d-7e4e-4031-b589-f69bb3703896",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"items\": [\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    },\n    {\n      \"sourceText\": \"Hello world\",\n      \"translatedText\": \"Hallo Welt\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85d4cb5c-6c50-4e72-bb5f-4bc1dfa61ca5",
+          "name": "Evaluate translation fluency",
+          "request": {
+            "name": "Evaluate translation fluency",
+            "description": {
+              "content": "Evaluates the fluency of a translation and provides improvement feedback.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "fluency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceLang\": \"<string>\",\n  \"targetLang\": \"<string>\",\n  \"sourceText\": \"<string>\",\n  \"translatedText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39e3a952-9fe6-4276-953a-6aff7fea9e85",
+              "name": "Successful fluency evaluation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"sourceText\": \"Hello world\",\n  \"translatedText\": \"Hallo Welt\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1961-01-05T14:20:26.838Z\",\n  \"data\": {\n    \"fluency\": 6.4,\n    \"idiomatic\": 7,\n    \"collocational\": 6,\n    \"discourse\": 7,\n    \"pragmatic\": 6,\n    \"calque\": 6,\n    \"issue_type\": \"collocation\",\n    \"severity\": \"minor\",\n    \"problematic_phrase\": \"macht Sinn\",\n    \"suggested_fix\": \"ergibt Sinn\",\n    \"main_issue\": \"The phrase is a calque from English and unnatural in German.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad782f55-302c-4190-ba11-e495f1f0aa6d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"sourceText\": \"Hello world\",\n  \"translatedText\": \"Hallo Welt\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2003-08-04T07:50:00.574Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f24cb15d-1ce1-4c7f-ab05-51693be9a8ae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"sourceText\": \"Hello world\",\n  \"translatedText\": \"Hallo Welt\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1999-12-12T14:16:54.660Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93ebbf89-05fd-49e2-a161-93ab32333f7e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "fluency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceLang\": \"en\",\n  \"targetLang\": \"de\",\n  \"sourceText\": \"Hello world\",\n  \"translatedText\": \"Hallo Welt\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2003-08-04T07:50:00.574Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c726a562-c933-4fc4-9d18-4dcb0061957d",
+          "name": "Start an agentic translation task",
+          "request": {
+            "name": "Start an agentic translation task",
+            "description": {
+              "content": "Initiates an asynchronous agentic translation task and returns a task ID for status tracking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "agentic-translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                "key": "X-Webhook-Url",
+                "value": "<uri>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"textContent\": \"<string>\",\n  \"sourceLanguage\": \"<string>\",\n  \"targetLanguage\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e07383b-14d5-4464-a029-fd32cce6e06b",
+              "name": "Task created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                    "key": "X-Webhook-Url",
+                    "value": "<uri>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"textContent\": \"Hello world\",\n  \"sourceLanguage\": \"auto\",\n  \"targetLanguage\": \"de\",\n  \"prompt\": \"Make all text in capital letters\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"2020-10-03T12:57:32.775Z\",\n  \"data\": {\n    \"task_id\": \"string\",\n    \"history_id\": \"string\",\n    \"status\": \"pending\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe87067a-4422-4043-bf51-865b7ae4fb30",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                    "key": "X-Webhook-Url",
+                    "value": "<uri>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"textContent\": \"Hello world\",\n  \"sourceLanguage\": \"auto\",\n  \"targetLanguage\": \"de\",\n  \"prompt\": \"Make all text in capital letters\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1976-07-14T15:30:25.115Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"issues\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6aeef055-d35e-46b5-89fd-fe1a12cac086",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                    "key": "X-Webhook-Url",
+                    "value": "<uri>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"textContent\": \"Hello world\",\n  \"sourceLanguage\": \"auto\",\n  \"targetLanguage\": \"de\",\n  \"prompt\": \"Make all text in capital letters\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1999-12-12T14:16:54.660Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38950a8b-bba2-4528-a249-c54e1a087b95",
+              "name": "Payment required - quota exceeded or unpaid invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                    "key": "X-Webhook-Url",
+                    "value": "<uri>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"textContent\": \"Hello world\",\n  \"sourceLanguage\": \"auto\",\n  \"targetLanguage\": \"de\",\n  \"prompt\": \"Make all text in capital letters\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"1976-02-20T01:33:19.105Z\",\n  \"error\": {\n    \"message\": \"string\",\n    \"quota_exceeded\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af0a63f8-57c3-4ba7-95c4-d5b17fbec8de",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional webhook URL to receive the translation result when the task is complete.",
+                    "key": "X-Webhook-Url",
+                    "value": "<uri>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"textContent\": \"Hello world\",\n  \"sourceLanguage\": \"auto\",\n  \"targetLanguage\": \"de\",\n  \"prompt\": \"Make all text in capital letters\",\n  \"ignoreCache\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"timestamp\": \"2003-08-04T07:50:00.574Z\",\n  \"error\": {\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e04512b-3e24-44ef-9a7c-6dfc23e958a7",
+          "name": "Get agentic translation task status by ID",
+          "request": {
+            "name": "Get agentic translation task status by ID",
+            "description": {
+              "content": "Retrieves the status and result of a specific agentic translation task by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translation",
+                "agentic-translate",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the agentic translation task"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bbb2f22-0998-4315-a608-0379051c5207",
+              "name": "Agentic translation task retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the agentic translation task"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"timestamp\": \"1986-03-30T14:08:15.217Z\",\n  \"data\": {\n    \"id\": \"string\",\n    \"status\": \"PENDING\",\n    \"createdAt\": \"1988-11-06T05:41:57.710Z\",\n    \"completedAt\": \"2012-08-13T08:52:28.266Z\",\n    \"result\": \"string\",\n    \"error\": \"string\",\n    \"sourceLanguage\": \"string\",\n    \"targetLanguage\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f027b4e-e39f-4708-91f4-25410c5a4dce",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the agentic translation task"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e46bba61-142f-48e9-aa6b-001a363f1310",
+              "name": "Agentic translation task not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the agentic translation task"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3ebd0cb-bfc6-4433-85bb-b1b30b6826e3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translation",
+                    "agentic-translate",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the agentic translation task"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://platform.algebras.ai/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "54788ea3-3742-43ef-b9fe-d514ec303715",
+    "name": "Algebras Authentication Translation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

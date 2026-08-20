@@ -86,6 +86,8 @@ apis:
   humanURL: https://docs.algebras.ai
   baseURL: https://platform.algebras.ai/api/v1
   tags:
+  - Glossary
+  tags_raw:
   - Glossaries
   properties:
   - type: OpenAPI
@@ -102,6 +104,8 @@ apis:
   humanURL: https://docs.algebras.ai
   baseURL: https://platform.algebras.ai/api/v1
   tags:
+  - Language
+  tags_raw:
   - Languages
   properties:
   - type: OpenAPI
@@ -134,6 +138,8 @@ apis:
   humanURL: https://docs.algebras.ai
   baseURL: https://platform.algebras.ai/api/v1
   tags:
+  - Real-Time
+  tags_raw:
   - Realtime
   properties:
   - type: OpenAPI

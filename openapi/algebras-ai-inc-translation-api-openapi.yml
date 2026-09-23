@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Algebras Authentication Translation API
+  title: Algebras Translation API
   version: '1.0'
 servers:
 - url: https://platform.algebras.ai/api/v1
@@ -36,8 +36,9 @@ paths:
                 contexts:
                   type: array
                   items:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   description: Optional per-row translator context aligned by index with texts
                   example:
                   - null
@@ -123,48 +124,59 @@ paths:
                               type: number
                               description: Original index of the text in the input array
                             value:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Aggregate fluency score (mean of 5 dimensions, 1-10)
                             idiomatic:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Naturalness of expression (1-10)
                             collocational:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Standard word combinations (1-10)
                             discourse:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Connectors and coherence (1-10)
                             pragmatic:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Register and tone (1-10)
                             calque:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Avoids mirror renderings (1-10, high = few calques)
                             issue_type:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
                             severity:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: critical | major | minor | cosmetic
                             problematic_phrase:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: Short substring illustrating the main problem
                             suggested_fix:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: Brief fix suggestion
                             main_issue:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: One sentence summary of the main linguistic issue
                       batch_summary:
                         type: object
@@ -269,6 +281,8 @@ paths:
                       message:
                         type: string
                         description: Error message
+      operationId: postTranslationTranslateBatch
+      x-operation-id-source: derived
   /translation/translate:
     post:
       tags:
@@ -347,48 +361,59 @@ paths:
                     description: Fluency evaluation (present only when fluency flag was set and text was not chunked)
                     properties:
                       value:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Aggregate fluency score (mean of 5 dimensions, 1-10)
                       idiomatic:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Naturalness of expression for a native reader (1-10)
                       collocational:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Standard, commonly accepted word combinations (1-10)
                       discourse:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Connectors, coherence, information structure (1-10)
                       pragmatic:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Register, tone, implicature, dialogue markers (1-10)
                       calque:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                         description: Avoids mirror renderings from source (1-10, high = few calques)
                       issue_type:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
                       severity:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: critical | major | minor | cosmetic
                       problematic_phrase:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Short substring from the translation illustrating the main problem
                       suggested_fix:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: Brief fix suggestion
                       main_issue:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                         description: One sentence summary of the main linguistic issue
             application/zip:
               schema:
@@ -483,6 +508,8 @@ paths:
                       message:
                         type: string
                         description: Error message
+      operationId: postTranslationTranslate
+      x-operation-id-source: derived
   /translation/fluency-batch:
     post:
       tags:
@@ -552,56 +579,69 @@ paths:
                               type: number
                               description: Original index of the item in the input array
                             fluency:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Aggregate fluency score (mean of 5 dimensions, 1-10)
                             idiomatic:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Naturalness of expression (1-10)
                             collocational:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Standard word combinations (1-10)
                             discourse:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Connectors and coherence (1-10)
                             pragmatic:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Register and tone (1-10)
                             calque:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: Avoids mirror renderings (1-10, high = few calques)
                             issue_type:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: calque | collocation | idiom_literal | discourse_marker | register_mismatch | false_friend | none
                             severity:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: critical | major | minor | cosmetic
                             problematic_phrase:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: Short substring illustrating the main problem
                             suggested_fix:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: Brief fix suggestion
                             main_issue:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: One sentence summary of the main linguistic issue
                             error:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                               description: Error message if evaluation failed for this item
                             status_code:
-                              type: number
-                              nullable: true
+                              type:
+                              - number
+                              - 'null'
                               description: HTTP status code for failed evaluations
                       batch_summary:
                         type: object
@@ -623,6 +663,8 @@ paths:
           description: Payment required - quota exceeded
         '500':
           description: Internal server error
+      operationId: postTranslationFluencyBatch
+      x-operation-id-source: derived
   /translation/fluency:
     post:
       tags:
@@ -780,6 +822,8 @@ paths:
                       message:
                         type: string
                         description: Error message
+      operationId: postTranslationFluency
+      x-operation-id-source: derived
   /translation/agentic-translate:
     post:
       tags:
@@ -941,6 +985,8 @@ paths:
                       message:
                         type: string
                         description: Error message
+      operationId: postTranslationAgenticTranslate
+      x-operation-id-source: derived
   /translation/agentic-translate/{id}:
     get:
       tags:
@@ -1007,6 +1053,8 @@ paths:
           description: Agentic translation task not found
         '500':
           description: Internal server error
+      operationId: getTranslationAgenticTranslateById
+      x-operation-id-source: derived
 components:
   schemas:
     TranslationStatus:

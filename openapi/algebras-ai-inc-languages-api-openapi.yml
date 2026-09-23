@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Algebras Authentication Languages API
+  title: Algebras Languages API
   version: '1.0'
 servers:
 - url: https://platform.algebras.ai/api/v1
@@ -46,6 +46,8 @@ paths:
                     description: List of supported languages
                     items:
                       $ref: '#/components/schemas/Language'
+      operationId: getTranslationLanguages
+      x-operation-id-source: derived
   /translation/languages/detect:
     post:
       tags:
@@ -169,6 +171,8 @@ paths:
                       message:
                         type: string
                         description: Error message
+      operationId: postTranslationLanguagesDetect
+      x-operation-id-source: derived
 components:
   schemas:
     Language:

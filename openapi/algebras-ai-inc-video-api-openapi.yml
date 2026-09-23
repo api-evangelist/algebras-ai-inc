@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Algebras Authentication Video API
+  title: Algebras Video API
   version: '1.0'
 servers:
 - url: https://platform.algebras.ai/api/v1
@@ -14,9 +14,7 @@ paths:
   /video/translate:
     post:
       summary: Start translation of an uploaded video file
-      description: 'Starts the video translation process for a video that was previously uploaded to storage. The video must be in UPLOADED or READY status. This will extract audio, transcribe it, translate the transcription, synthesize new audio, and create the final translated video.
-
-        '
+      description: Starts the video translation process for a video that was previously uploaded to storage. The video must be in UPLOADED or READY status. This will extract audio, transcribe it, translate the transcription, synthesize new audio, and create the final translated video.
       tags:
       - Video
       requestBody:
@@ -77,12 +75,12 @@ paths:
           description: Unauthorized (invalid API key)
         '500':
           description: Internal server error
+      operationId: postVideoTranslate
+      x-operation-id-source: derived
   /video/status/update:
     post:
       summary: Update video upload status
-      description: 'Updates the status of a video after upload completion or failure. Used to mark video as UPLOADED after successful upload to storage bucket, or FAILED if upload failed. Only UPLOADED and FAILED statuses can be set through this endpoint.
-
-        '
+      description: Updates the status of a video after upload completion or failure. Used to mark video as UPLOADED after successful upload to storage bucket, or FAILED if upload failed. Only UPLOADED and FAILED statuses can be set through this endpoint.
       tags:
       - Video
       requestBody:
@@ -138,6 +136,8 @@ paths:
           description: Unauthorized (invalid API key)
         '500':
           description: Internal server error
+      operationId: postVideoStatusUpdate
+      x-operation-id-source: derived
 components:
   securitySchemes:
     APIKeyHeader:

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Algebras Authentication Storage API
+  title: Algebras Storage API
   version: '1.0'
 servers:
 - url: https://platform.algebras.ai/api/v1
@@ -14,9 +14,7 @@ paths:
   /storage/upload-url:
     post:
       summary: Get a signed URL for uploading a video file to storage
-      description: 'Returns a signed URL that allows the client to upload a video file directly to cloud storage. Supported formats: `video/mp4`, `video/quicktime`, `video/x-matroska`, `video/webm`
-
-        '
+      description: 'Returns a signed URL that allows the client to upload a video file directly to cloud storage. Supported formats: `video/mp4`, `video/quicktime`, `video/x-matroska`, `video/webm`'
       tags:
       - Storage
       requestBody:
@@ -105,6 +103,8 @@ paths:
           description: Unauthorized (invalid API key).
         '500':
           description: Internal server error.
+      operationId: postStorageUploadUrl
+      x-operation-id-source: derived
 components:
   securitySchemes:
     APIKeyHeader:

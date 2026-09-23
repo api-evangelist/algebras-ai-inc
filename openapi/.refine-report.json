@@ -1,15 +1,7 @@
 {
   "provider": "algebras-ai-inc",
   "sources": [
-    "algebras-ai-inc-authentication-api-openapi.yml",
-    "algebras-ai-inc-common-api-openapi.yml",
-    "algebras-ai-inc-glossaries-api-openapi.yml",
-    "algebras-ai-inc-languages-api-openapi.yml",
-    "algebras-ai-inc-localization-api-openapi.yml",
-    "algebras-ai-inc-realtime-api-openapi.yml",
-    "algebras-ai-inc-storage-api-openapi.yml",
-    "algebras-ai-inc-translation-api-openapi.yml",
-    "algebras-ai-inc-video-api-openapi.yml"
+    "_original/algebras-ai-inc-openapi-original.json"
   ],
   "outputs": [
     "algebras-ai-inc-authentication-api-openapi.yml",
@@ -25,6 +17,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "algebras-ai-inc-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Authentication",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Common",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Glossaries",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Languages",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Localization",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Realtime",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Storage",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Translation",
+    "algebras-ai-inc-openapi-original.json: declared missing tag: Video",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "algebras-ai-inc-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-common-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-glossaries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-languages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-localization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-realtime-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-storage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-translation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "algebras-ai-inc-video-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

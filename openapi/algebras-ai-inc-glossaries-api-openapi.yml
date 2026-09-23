@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Algebras Authentication Glossaries API
+  title: Algebras Glossaries API
   version: '1.0'
 servers:
 - url: https://platform.algebras.ai/api/v1
@@ -67,6 +67,8 @@ paths:
           description: Unauthorized
         '500':
           description: Internal server error
+      operationId: getTranslationGlossaries
+      x-operation-id-source: derived
     post:
       tags:
       - Glossaries
@@ -118,6 +120,8 @@ paths:
           description: Unauthorized
         '500':
           description: Internal server error
+      operationId: postTranslationGlossaries
+      x-operation-id-source: derived
   /translation/glossaries/{id}:
     get:
       tags:
@@ -154,6 +158,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: getTranslationGlossariesById
+      x-operation-id-source: derived
     put:
       tags:
       - Glossaries
@@ -212,6 +218,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: putTranslationGlossariesById
+      x-operation-id-source: derived
     delete:
       tags:
       - Glossaries
@@ -251,6 +259,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: deleteTranslationGlossariesById
+      x-operation-id-source: derived
   /translation/glossaries/{id}/terms:
     get:
       tags:
@@ -315,6 +325,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: getTranslationGlossariesByIdTerms
+      x-operation-id-source: derived
     post:
       tags:
       - Glossaries
@@ -382,6 +394,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: postTranslationGlossariesByIdTerms
+      x-operation-id-source: derived
   /translation/glossaries/{id}/terms/bulk:
     post:
       tags:
@@ -528,6 +542,8 @@ paths:
           description: Glossary not found
         '500':
           description: Internal server error
+      operationId: postTranslationGlossariesByIdTermsBulk
+      x-operation-id-source: derived
   /translation/glossaries/{id}/terms/{termId}:
     get:
       tags:
@@ -570,6 +586,8 @@ paths:
           description: Term not found
         '500':
           description: Internal server error
+      operationId: getTranslationGlossariesByIdTermsByTermId
+      x-operation-id-source: derived
     put:
       tags:
       - Glossaries
@@ -639,6 +657,8 @@ paths:
           description: Term not found
         '500':
           description: Internal server error
+      operationId: putTranslationGlossariesByIdTermsByTermId
+      x-operation-id-source: derived
     delete:
       tags:
       - Glossaries
@@ -684,6 +704,8 @@ paths:
           description: Term not found
         '500':
           description: Internal server error
+      operationId: deleteTranslationGlossariesByIdTermsByTermId
+      x-operation-id-source: derived
   /translation/glossaries/updates:
     get:
       tags:
@@ -702,6 +724,8 @@ paths:
           description: Bad request - missing organizationId
         '401':
           description: Unauthorized
+      operationId: getTranslationGlossariesUpdates
+      x-operation-id-source: derived
   /translation/glossaries/updates/{id}:
     get:
       tags:
@@ -727,6 +751,8 @@ paths:
           description: Bad request - missing organizationId
         '401':
           description: Unauthorized
+      operationId: getTranslationGlossariesUpdatesById
+      x-operation-id-source: derived
 components:
   schemas:
     GlossaryStatus:
@@ -738,6 +764,25 @@ components:
       - DELETING
       - ERROR
       description: Status of the glossary
+    GlossaryLanguage:
+      type: object
+      required:
+      - language
+      - createdAt
+      - updatedAt
+      properties:
+        language:
+          type: string
+          description: Language code
+          example: en
+        createdAt:
+          type: string
+          format: date-time
+          description: When the language was added to the glossary
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the language was last updated
     Glossary:
       type: object
       required:
@@ -809,25 +854,6 @@ components:
           type: string
           format: date-time
           description: When the definition was last updated
-    GlossaryLanguage:
-      type: object
-      required:
-      - language
-      - createdAt
-      - updatedAt
-      properties:
-        language:
-          type: string
-          description: Language code
-          example: en
-        createdAt:
-          type: string
-          format: date-time
-          description: When the language was added to the glossary
-        updatedAt:
-          type: string
-          format: date-time
-          description: When the language was last updated
     GlossaryTerm:
       type: object
       required:

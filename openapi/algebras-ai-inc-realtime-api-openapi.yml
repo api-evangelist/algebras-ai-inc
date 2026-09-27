@@ -606,6 +606,93 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CreateRealtimeStreamSessionRequest:
+      type: object
+      required:
+      - name
+      - sourceLanguage
+      properties:
+        name:
+          type: string
+          description: Name of the stream session
+          example: Weekly all-hands
+        sourceLanguage:
+          type: string
+          description: Source language code
+          example: en
+    PublicListenerConnection:
+      type: object
+      required:
+      - streamId
+      - streamName
+      - serverUrl
+      - token
+      - roomName
+      - sourceRoom
+      - sourceLang
+      - targetLang
+      properties:
+        streamId:
+          type: string
+          description: Stream session ID
+          example: cmabc123stream
+        streamName:
+          type: string
+          description: Stream session name
+          example: Weekly all-hands
+        serverUrl:
+          type: string
+          description: LiveKit server URL
+          example: wss://algebras-livekit.example.com
+        token:
+          type: string
+          description: JWT token for joining the listener room
+        roomName:
+          type: string
+          description: LiveKit listener room name
+          example: stream-cmabc123stream-en
+        sourceRoom:
+          type: string
+          description: Source speaker room name
+          example: stream-cmabc123stream
+        sourceLang:
+          type: string
+          description: Source language code
+          example: en
+        targetLang:
+          type: string
+          description: Target language code
+          example: es
+    RealtimeStreamSession:
+      type: object
+      required:
+      - id
+      - name
+      - createdAt
+      - listeners
+      - sourceLanguage
+      properties:
+        id:
+          type: string
+          description: Unique stream session ID
+          example: cmabc123stream
+        name:
+          type: string
+          description: Human-readable stream session name
+          example: Weekly all-hands
+        createdAt:
+          type: string
+          format: date-time
+          description: When the stream session was created
+          example: '2026-04-16T12:30:00.000Z'
+        listeners:
+          type: integer
+          description: Current listener count snapshot
+          example: 0
+        sourceLanguage:
+          type: string
+          description: Source language code for the stream session
+          example: en
     RealtimePublicLink:
       type: object
       required:
@@ -653,65 +740,6 @@ components:
         ingressStreamKey:
           type: string
           description: RTMP stream key
-    GenerateRealtimePublicLinkRequest:
-      type: object
-      properties:
-        langCode:
-          type: string
-          description: Optional listener language code for the public link
-          example: spanish
-    StartRtmpEgressResult:
-      type: object
-      required:
-      - egressId
-      properties:
-        egressId:
-          type: string
-          description: LiveKit egress ID
-          example: EG_xxxxx
-    PublicListenerConnection:
-      type: object
-      required:
-      - streamId
-      - streamName
-      - serverUrl
-      - token
-      - roomName
-      - sourceRoom
-      - sourceLang
-      - targetLang
-      properties:
-        streamId:
-          type: string
-          description: Stream session ID
-          example: cmabc123stream
-        streamName:
-          type: string
-          description: Stream session name
-          example: Weekly all-hands
-        serverUrl:
-          type: string
-          description: LiveKit server URL
-          example: wss://algebras-livekit.example.com
-        token:
-          type: string
-          description: JWT token for joining the listener room
-        roomName:
-          type: string
-          description: LiveKit listener room name
-          example: stream-cmabc123stream-en
-        sourceRoom:
-          type: string
-          description: Source speaker room name
-          example: stream-cmabc123stream
-        sourceLang:
-          type: string
-          description: Source language code
-          example: en
-        targetLang:
-          type: string
-          description: Target language code
-          example: es
     StartRealtimeStreamRequest:
       type: object
       properties:
@@ -719,77 +747,13 @@ components:
           type: string
           description: Optional participant display name for the speaker connection
           example: API Speaker
-    StopRealtimeStreamResult:
+    GenerateRealtimePublicLinkRequest:
       type: object
-      required:
-      - closedRooms
       properties:
-        closedRooms:
-          type: integer
-          description: Number of LiveKit rooms that were closed
-          example: 3
-    CreateRealtimeStreamSessionRequest:
-      type: object
-      required:
-      - name
-      - sourceLanguage
-      properties:
-        name:
+        langCode:
           type: string
-          description: Name of the stream session
-          example: Weekly all-hands
-        sourceLanguage:
-          type: string
-          description: Source language code
-          example: en
-    StartRtmpEgressRequest:
-      type: object
-      required:
-      - targetLang
-      - rtmpUrl
-      properties:
-        targetLang:
-          type: string
-          description: Target language code for the listener room
-          example: es
-        rtmpUrl:
-          type: string
-          description: Base RTMP destination URL
-          example: rtmp://a.rtmp.youtube.com/live2
-        streamKey:
-          type: string
-          description: Optional RTMP stream key appended to the URL
-          example: abcd-1234-efgh-5678
-    RealtimeStreamSession:
-      type: object
-      required:
-      - id
-      - name
-      - createdAt
-      - listeners
-      - sourceLanguage
-      properties:
-        id:
-          type: string
-          description: Unique stream session ID
-          example: cmabc123stream
-        name:
-          type: string
-          description: Human-readable stream session name
-          example: Weekly all-hands
-        createdAt:
-          type: string
-          format: date-time
-          description: When the stream session was created
-          example: '2026-04-16T12:30:00.000Z'
-        listeners:
-          type: integer
-          description: Current listener count snapshot
-          example: 0
-        sourceLanguage:
-          type: string
-          description: Source language code for the stream session
-          example: en
+          description: Optional listener language code for the public link
+          example: spanish
     RealtimeSpeakerConnection:
       type: object
       required:
@@ -818,6 +782,42 @@ components:
           type: string
           description: Speaker participant display name
           example: API Speaker
+    StopRealtimeStreamResult:
+      type: object
+      required:
+      - closedRooms
+      properties:
+        closedRooms:
+          type: integer
+          description: Number of LiveKit rooms that were closed
+          example: 3
+    StartRtmpEgressRequest:
+      type: object
+      required:
+      - targetLang
+      - rtmpUrl
+      properties:
+        targetLang:
+          type: string
+          description: Target language code for the listener room
+          example: es
+        rtmpUrl:
+          type: string
+          description: Base RTMP destination URL
+          example: rtmp://a.rtmp.youtube.com/live2
+        streamKey:
+          type: string
+          description: Optional RTMP stream key appended to the URL
+          example: abcd-1234-efgh-5678
+    StartRtmpEgressResult:
+      type: object
+      required:
+      - egressId
+      properties:
+        egressId:
+          type: string
+          description: LiveKit egress ID
+          example: EG_xxxxx
   securitySchemes:
     APIKeyHeader:
       type: apiKey

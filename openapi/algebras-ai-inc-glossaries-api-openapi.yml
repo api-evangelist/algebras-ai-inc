@@ -755,15 +755,35 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GlossaryStatus:
-      type: string
-      enum:
-      - OK
-      - CREATING
-      - UPDATING
-      - DELETING
-      - ERROR
-      description: Status of the glossary
+    GlossaryTermDefinition:
+      type: object
+      required:
+      - language
+      - term
+      - definition
+      - createdAt
+      - updatedAt
+      properties:
+        language:
+          type: string
+          description: Language code
+          example: en
+        term:
+          type: string
+          description: The term text
+          example: API
+        definition:
+          type: string
+          description: Definition of the term
+          example: Application Programming Interface
+        createdAt:
+          type: string
+          format: date-time
+          description: When the definition was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the definition was last updated
     GlossaryLanguage:
       type: object
       required:
@@ -783,6 +803,38 @@ components:
           type: string
           format: date-time
           description: When the language was last updated
+    GlossaryTerm:
+      type: object
+      required:
+      - id
+      - glossaryId
+      - translationFlag
+      - createdAt
+      - updatedAt
+      - definitions
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the term
+        glossaryId:
+          type: string
+          description: ID of the glossary this term belongs to
+        translationFlag:
+          type: boolean
+          description: Whether this term should be used for translation
+        createdAt:
+          type: string
+          format: date-time
+          description: When the term was created
+        updatedAt:
+          type: string
+          format: date-time
+          description: When the term was last updated
+        definitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GlossaryTermDefinition'
+          description: Definitions of the term in different languages
     Glossary:
       type: object
       required:
@@ -825,67 +877,15 @@ components:
           items:
             $ref: '#/components/schemas/GlossaryTerm'
           description: Terms in this glossary
-    GlossaryTermDefinition:
-      type: object
-      required:
-      - language
-      - term
-      - definition
-      - createdAt
-      - updatedAt
-      properties:
-        language:
-          type: string
-          description: Language code
-          example: en
-        term:
-          type: string
-          description: The term text
-          example: API
-        definition:
-          type: string
-          description: Definition of the term
-          example: Application Programming Interface
-        createdAt:
-          type: string
-          format: date-time
-          description: When the definition was created
-        updatedAt:
-          type: string
-          format: date-time
-          description: When the definition was last updated
-    GlossaryTerm:
-      type: object
-      required:
-      - id
-      - glossaryId
-      - translationFlag
-      - createdAt
-      - updatedAt
-      - definitions
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the term
-        glossaryId:
-          type: string
-          description: ID of the glossary this term belongs to
-        translationFlag:
-          type: boolean
-          description: Whether this term should be used for translation
-        createdAt:
-          type: string
-          format: date-time
-          description: When the term was created
-        updatedAt:
-          type: string
-          format: date-time
-          description: When the term was last updated
-        definitions:
-          type: array
-          items:
-            $ref: '#/components/schemas/GlossaryTermDefinition'
-          description: Definitions of the term in different languages
+    GlossaryStatus:
+      type: string
+      enum:
+      - OK
+      - CREATING
+      - UPDATING
+      - DELETING
+      - ERROR
+      description: Status of the glossary
   securitySchemes:
     APIKeyHeader:
       type: apiKey

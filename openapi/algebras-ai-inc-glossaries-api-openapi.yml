@@ -784,6 +784,15 @@ components:
           type: string
           format: date-time
           description: When the definition was last updated
+    GlossaryStatus:
+      type: string
+      enum:
+      - OK
+      - CREATING
+      - UPDATING
+      - DELETING
+      - ERROR
+      description: Status of the glossary
     GlossaryLanguage:
       type: object
       required:
@@ -877,15 +886,6 @@ components:
           items:
             $ref: '#/components/schemas/GlossaryTerm'
           description: Terms in this glossary
-    GlossaryStatus:
-      type: string
-      enum:
-      - OK
-      - CREATING
-      - UPDATING
-      - DELETING
-      - ERROR
-      description: Status of the glossary
   securitySchemes:
     APIKeyHeader:
       type: apiKey

@@ -188,6 +188,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    DownloadUrl:
+      type: object
+      required:
+      - url
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Signed URL for downloading the file (expires in 60 minutes)
     LocalizationHistoryItem:
       type: object
       required:
@@ -212,15 +221,6 @@ components:
           type: string
           format: date-time
           description: When the localization was created
-    DownloadUrl:
-      type: object
-      required:
-      - url
-      properties:
-        url:
-          type: string
-          format: uri
-          description: Signed URL for downloading the file (expires in 60 minutes)
     TranslationStatus:
       type: string
       enum:

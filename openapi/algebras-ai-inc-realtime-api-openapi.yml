@@ -606,141 +606,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CreateRealtimeStreamSessionRequest:
-      type: object
-      required:
-      - name
-      - sourceLanguage
-      properties:
-        name:
-          type: string
-          description: Name of the stream session
-          example: Weekly all-hands
-        sourceLanguage:
-          type: string
-          description: Source language code
-          example: en
-    StartRtmpEgressRequest:
-      type: object
-      required:
-      - targetLang
-      - rtmpUrl
-      properties:
-        targetLang:
-          type: string
-          description: Target language code for the listener room
-          example: es
-        rtmpUrl:
-          type: string
-          description: Base RTMP destination URL
-          example: rtmp://a.rtmp.youtube.com/live2
-        streamKey:
-          type: string
-          description: Optional RTMP stream key appended to the URL
-          example: abcd-1234-efgh-5678
-    GenerateRealtimePublicLinkRequest:
-      type: object
-      properties:
-        langCode:
-          type: string
-          description: Optional listener language code for the public link
-          example: spanish
-    PublicListenerConnection:
-      type: object
-      required:
-      - streamId
-      - streamName
-      - serverUrl
-      - token
-      - roomName
-      - sourceRoom
-      - sourceLang
-      - targetLang
-      properties:
-        streamId:
-          type: string
-          description: Stream session ID
-          example: cmabc123stream
-        streamName:
-          type: string
-          description: Stream session name
-          example: Weekly all-hands
-        serverUrl:
-          type: string
-          description: LiveKit server URL
-          example: wss://algebras-livekit.example.com
-        token:
-          type: string
-          description: JWT token for joining the listener room
-        roomName:
-          type: string
-          description: LiveKit listener room name
-          example: stream-cmabc123stream-en
-        sourceRoom:
-          type: string
-          description: Source speaker room name
-          example: stream-cmabc123stream
-        sourceLang:
-          type: string
-          description: Source language code
-          example: en
-        targetLang:
-          type: string
-          description: Target language code
-          example: es
-    RealtimeSpeakerConnection:
-      type: object
-      required:
-      - roomName
-      - serverUrl
-      - token
-      - participantIdentity
-      - participantName
-      properties:
-        roomName:
-          type: string
-          description: LiveKit speaker room name
-          example: stream-cmabc123stream
-        serverUrl:
-          type: string
-          description: LiveKit server URL
-          example: wss://algebras-livekit.example.com
-        token:
-          type: string
-          description: JWT token for joining the speaker room
-        participantIdentity:
-          type: string
-          description: Speaker participant identity
-          example: speaker-api-key-id
-        participantName:
-          type: string
-          description: Speaker participant display name
-          example: API Speaker
-    RtmpIngress:
-      type: object
-      required:
-      - ingressId
-      - ingressUrl
-      - ingressStreamKey
-      properties:
-        ingressId:
-          type: string
-          description: LiveKit ingress ID
-          example: ingress_123
-        ingressUrl:
-          type: string
-          description: RTMP ingest URL
-          example: rtmp://ingest.example.com/live
-        ingressStreamKey:
-          type: string
-          description: RTMP stream key
-    StartRealtimeStreamRequest:
-      type: object
-      properties:
-        participantName:
-          type: string
-          description: Optional participant display name for the speaker connection
-          example: API Speaker
     RealtimePublicLink:
       type: object
       required:
@@ -818,6 +683,141 @@ components:
           type: string
           description: LiveKit egress ID
           example: EG_xxxxx
+    GenerateRealtimePublicLinkRequest:
+      type: object
+      properties:
+        langCode:
+          type: string
+          description: Optional listener language code for the public link
+          example: spanish
+    RtmpIngress:
+      type: object
+      required:
+      - ingressId
+      - ingressUrl
+      - ingressStreamKey
+      properties:
+        ingressId:
+          type: string
+          description: LiveKit ingress ID
+          example: ingress_123
+        ingressUrl:
+          type: string
+          description: RTMP ingest URL
+          example: rtmp://ingest.example.com/live
+        ingressStreamKey:
+          type: string
+          description: RTMP stream key
+    StartRtmpEgressRequest:
+      type: object
+      required:
+      - targetLang
+      - rtmpUrl
+      properties:
+        targetLang:
+          type: string
+          description: Target language code for the listener room
+          example: es
+        rtmpUrl:
+          type: string
+          description: Base RTMP destination URL
+          example: rtmp://a.rtmp.youtube.com/live2
+        streamKey:
+          type: string
+          description: Optional RTMP stream key appended to the URL
+          example: abcd-1234-efgh-5678
+    RealtimeSpeakerConnection:
+      type: object
+      required:
+      - roomName
+      - serverUrl
+      - token
+      - participantIdentity
+      - participantName
+      properties:
+        roomName:
+          type: string
+          description: LiveKit speaker room name
+          example: stream-cmabc123stream
+        serverUrl:
+          type: string
+          description: LiveKit server URL
+          example: wss://algebras-livekit.example.com
+        token:
+          type: string
+          description: JWT token for joining the speaker room
+        participantIdentity:
+          type: string
+          description: Speaker participant identity
+          example: speaker-api-key-id
+        participantName:
+          type: string
+          description: Speaker participant display name
+          example: API Speaker
+    StartRealtimeStreamRequest:
+      type: object
+      properties:
+        participantName:
+          type: string
+          description: Optional participant display name for the speaker connection
+          example: API Speaker
+    PublicListenerConnection:
+      type: object
+      required:
+      - streamId
+      - streamName
+      - serverUrl
+      - token
+      - roomName
+      - sourceRoom
+      - sourceLang
+      - targetLang
+      properties:
+        streamId:
+          type: string
+          description: Stream session ID
+          example: cmabc123stream
+        streamName:
+          type: string
+          description: Stream session name
+          example: Weekly all-hands
+        serverUrl:
+          type: string
+          description: LiveKit server URL
+          example: wss://algebras-livekit.example.com
+        token:
+          type: string
+          description: JWT token for joining the listener room
+        roomName:
+          type: string
+          description: LiveKit listener room name
+          example: stream-cmabc123stream-en
+        sourceRoom:
+          type: string
+          description: Source speaker room name
+          example: stream-cmabc123stream
+        sourceLang:
+          type: string
+          description: Source language code
+          example: en
+        targetLang:
+          type: string
+          description: Target language code
+          example: es
+    CreateRealtimeStreamSessionRequest:
+      type: object
+      required:
+      - name
+      - sourceLanguage
+      properties:
+        name:
+          type: string
+          description: Name of the stream session
+          example: Weekly all-hands
+        sourceLanguage:
+          type: string
+          description: Source language code
+          example: en
   securitySchemes:
     APIKeyHeader:
       type: apiKey

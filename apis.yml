@@ -212,6 +212,8 @@ apis:
   - type: GettingStarted
     url: https://docs.algebras.ai/general/getting-started/
 common:
+- type: Plans
+  url: plans/algebras-ai-inc-plans-pricing.yml
 - type: Overlay
   url: overlays/algebras-ai-inc-openapi-overlay.yaml
 - type: DeveloperPortal

@@ -1,0 +1,196 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.algebras.ai/pricing
+sources:
+- https://www.algebras.ai/pricing
+- https://algebras.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-07'
+  evidence: Private Deployment Options
+  managed_tier: Standard
+published: true
+note: Page shows monthly/annual tiers plus one-time video minute packages; a second tier table shows discounted
+  annual-equivalent monthly rates ($12.5/$37.5/$62.5) with Fluency API conversion (1 request or batch
+  item = 10 words). Enterprise is Contact Sales but FAQ states it starts at $990 per month.
+plan_count: 10
+currency: USD
+plans:
+- name: Standard
+  price_text: $15 /month
+  price: 15
+  currency: USD
+  period: month
+  unit: words
+  included_quota: 15k words included monthly; up to 10 concurrent listeners; 2 listener-hours
+  overage: Text overage $1 / 1k words; Listener overage $5 / listener-hour ($0.00138 / sec)
+- name: Pro
+  price_text: $45 /month
+  price: 45
+  currency: USD
+  period: month
+  unit: words
+  included_quota: 50k words included monthly; up to 50 concurrent listeners; 10 listener-hours; API access
+  overage: Text overage $0.9 / 1k words; Listener overage $4 / listener-hour ($0.00111 / sec)
+- name: Premium
+  price_text: $75 /month
+  price: 75
+  currency: USD
+  period: month
+  unit: words
+  included_quota: 100k words included monthly; up to 200 concurrent listeners; 25 listener-hours; API
+    access
+  overage: Text overage $0.75 / 1k words; Listener overage $3 / listener-hour ($0.00083 / sec)
+- name: Standard (annual)
+  price_text: $150 per year
+  price: 150
+  currency: USD
+  period: year
+  unit: words
+  included_quota: 15k words included monthly
+  overage: Text overage $1 / 1k words
+- name: Pro (annual)
+  price_text: $450 per year
+  price: 450
+  currency: USD
+  period: year
+  unit: words
+  included_quota: 50k words included monthly
+  overage: Text overage $0.90 / 1k words
+- name: Premium (annual)
+  price_text: $750 per year
+  price: 750
+  currency: USD
+  period: year
+  unit: words
+  included_quota: 100k words included monthly
+  overage: Text overage $0.75 / 1k words
+- name: Enterprise
+  price_text: Enterprise translation plans start at $990/month and scale with your needs.
+  price: 990
+  currency: USD
+  period: month
+  included_quota: Custom words per month, custom AI models, SLA, dedicated account manager
+  overage: Custom translation overage pricing
+- name: 10 Minutes video package
+  price_text: $15 total
+  price: 15
+  currency: USD
+  period: one-time
+  unit: minutes
+  included_quota: 10 minutes of videos translation ($1.50 /min)
+- name: 60 Minutes video package
+  price_text: $79 total
+  price: 79
+  currency: USD
+  period: one-time
+  unit: minutes
+  included_quota: 60 minutes of videos translation ($1.32 /min)
+- name: 240 Minutes video package
+  price_text: $240 total
+  price: 240
+  currency: USD
+  period: one-time
+  unit: minutes
+  included_quota: 240 minutes of videos translation ($1.00 /min)
+rate_limit_statements:
+- Up to 10 concurrent listeners
+- Up to 50 concurrent listeners
+- Up to 200 concurrent listeners
+- Algebras does not hide rate limits or throttle requests without warning.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - token
+  plans:
+  - name: Standard
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - month
+  - name: Premium
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - month
+  - name: Standard (annual)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - year
+  - name: Pro (annual)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - year
+  - name: Premium (annual)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - token
+    periods:
+    - year
+  - name: Enterprise
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: 10 Minutes video package
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time
+  - name: 60 Minutes video package
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time
+  - name: 240 Minutes video package
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time

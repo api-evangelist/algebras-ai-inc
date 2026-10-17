@@ -188,13 +188,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TranslationStatus:
-      type: string
-      enum:
-      - PENDING
-      - READY
-      - ERROR
-      description: Status of the translation/localization job
+    LocalizationResult:
+      type: object
+      required:
+      - success
+      - message
+      - localizationId
+      - status
+      properties:
+        success:
+          type: boolean
+          description: Whether the localization request was successful
+        message:
+          type: string
+          description: Response message
+        localizationId:
+          type: string
+          description: Unique identifier for the localization job
+        status:
+          $ref: '#/components/schemas/TranslationStatus'
     LocalizationHistoryItem:
       type: object
       required:
@@ -219,25 +231,13 @@ components:
           type: string
           format: date-time
           description: When the localization was created
-    LocalizationResult:
-      type: object
-      required:
-      - success
-      - message
-      - localizationId
-      - status
-      properties:
-        success:
-          type: boolean
-          description: Whether the localization request was successful
-        message:
-          type: string
-          description: Response message
-        localizationId:
-          type: string
-          description: Unique identifier for the localization job
-        status:
-          $ref: '#/components/schemas/TranslationStatus'
+    TranslationStatus:
+      type: string
+      enum:
+      - PENDING
+      - READY
+      - ERROR
+      description: Status of the translation/localization job
     DownloadUrl:
       type: object
       required:

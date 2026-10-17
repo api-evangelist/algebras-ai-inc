@@ -606,44 +606,31 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    RealtimePublicLink:
+    StartRtmpEgressRequest:
       type: object
       required:
-      - publicId
-      - publicPath
-      - langCode
-      - speakerRoomName
-      - listenerRoomName
+      - targetLang
+      - rtmpUrl
       properties:
-        publicId:
+        targetLang:
           type: string
-          description: Public listener link ID
-          example: cmpublic123
-        publicPath:
+          description: Target language code for the listener room
+          example: es
+        rtmpUrl:
           type: string
-          description: Relative path for the public listener link redirect
-          example: /api/public/live/cmpublic123
+          description: Base RTMP destination URL
+          example: rtmp://a.rtmp.youtube.com/live2
+        streamKey:
+          type: string
+          description: Optional RTMP stream key appended to the URL
+          example: abcd-1234-efgh-5678
+    GenerateRealtimePublicLinkRequest:
+      type: object
+      properties:
         langCode:
           type: string
-          description: Listener language code encoded in the link
+          description: Optional listener language code for the public link
           example: spanish
-        speakerRoomName:
-          type: string
-          description: LiveKit speaker room name
-          example: stream-cmabc123stream
-        listenerRoomName:
-          type: string
-          description: LiveKit listener room name
-          example: stream-cmabc123stream-spanish
-    StopRealtimeStreamResult:
-      type: object
-      required:
-      - closedRooms
-      properties:
-        closedRooms:
-          type: integer
-          description: Number of LiveKit rooms that were closed
-          example: 3
     RealtimeStreamSession:
       type: object
       required:
@@ -674,6 +661,49 @@ components:
           type: string
           description: Source language code for the stream session
           example: en
+    RealtimePublicLink:
+      type: object
+      required:
+      - publicId
+      - publicPath
+      - langCode
+      - speakerRoomName
+      - listenerRoomName
+      properties:
+        publicId:
+          type: string
+          description: Public listener link ID
+          example: cmpublic123
+        publicPath:
+          type: string
+          description: Relative path for the public listener link redirect
+          example: /api/public/live/cmpublic123
+        langCode:
+          type: string
+          description: Listener language code encoded in the link
+          example: spanish
+        speakerRoomName:
+          type: string
+          description: LiveKit speaker room name
+          example: stream-cmabc123stream
+        listenerRoomName:
+          type: string
+          description: LiveKit listener room name
+          example: stream-cmabc123stream-spanish
+    CreateRealtimeStreamSessionRequest:
+      type: object
+      required:
+      - name
+      - sourceLanguage
+      properties:
+        name:
+          type: string
+          description: Name of the stream session
+          example: Weekly all-hands
+        sourceLanguage:
+          type: string
+          description: Source language code
+          example: en
     StartRtmpEgressResult:
       type: object
       required:
@@ -683,13 +713,6 @@ components:
           type: string
           description: LiveKit egress ID
           example: EG_xxxxx
-    GenerateRealtimePublicLinkRequest:
-      type: object
-      properties:
-        langCode:
-          type: string
-          description: Optional listener language code for the public link
-          example: spanish
     RtmpIngress:
       type: object
       required:
@@ -708,24 +731,6 @@ components:
         ingressStreamKey:
           type: string
           description: RTMP stream key
-    StartRtmpEgressRequest:
-      type: object
-      required:
-      - targetLang
-      - rtmpUrl
-      properties:
-        targetLang:
-          type: string
-          description: Target language code for the listener room
-          example: es
-        rtmpUrl:
-          type: string
-          description: Base RTMP destination URL
-          example: rtmp://a.rtmp.youtube.com/live2
-        streamKey:
-          type: string
-          description: Optional RTMP stream key appended to the URL
-          example: abcd-1234-efgh-5678
     RealtimeSpeakerConnection:
       type: object
       required:
@@ -753,13 +758,6 @@ components:
         participantName:
           type: string
           description: Speaker participant display name
-          example: API Speaker
-    StartRealtimeStreamRequest:
-      type: object
-      properties:
-        participantName:
-          type: string
-          description: Optional participant display name for the speaker connection
           example: API Speaker
     PublicListenerConnection:
       type: object
@@ -804,20 +802,22 @@ components:
           type: string
           description: Target language code
           example: es
-    CreateRealtimeStreamSessionRequest:
+    StopRealtimeStreamResult:
       type: object
       required:
-      - name
-      - sourceLanguage
+      - closedRooms
       properties:
-        name:
+        closedRooms:
+          type: integer
+          description: Number of LiveKit rooms that were closed
+          example: 3
+    StartRealtimeStreamRequest:
+      type: object
+      properties:
+        participantName:
           type: string
-          description: Name of the stream session
-          example: Weekly all-hands
-        sourceLanguage:
-          type: string
-          description: Source language code
-          example: en
+          description: Optional participant display name for the speaker connection
+          example: API Speaker
   securitySchemes:
     APIKeyHeader:
       type: apiKey

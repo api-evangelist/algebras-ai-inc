@@ -1,4 +1,4 @@
-# Algebras AI Inc.
+# Algebras AI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Algebras AI Inc. is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Algebras AI is an AI-powered localization platform that translates UI, video, and audio content into 300+ languages with agentic translation, glossary-aware quality, and voice/video dubbing with lip-sync. The Algebras API (OpenAPI 3.0, API-key auth via the X-Api-Key header) exposes text, batch, and agentic translation, translation fluency evaluation, glossaries and terms, localization tables, language detection, video translation, storage upload URLs, and real-time streaming rooms with RTMP ingress/egress. First-party tooling includes a Python CLI, a Unity SDK, a Next.js integration, a locale-checker GitHub Action, a hosted MCP server, and a published agent skill. Algebras AI was surfaced as a 500 Global portfolio company.
 
-Backed by: 500-global — https://algebras.ai
+**Areas:** Company · Translation · Localization · Internationalization · Artificial Intelligence · Machine Translation · Voice · Video · Developer Tools
+
+## Algebras AI on APIs.io
+
+Everything profiled for Algebras AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/algebras-ai-inc/](https://apis.io/providers/algebras-ai-inc/)** — or go straight to one of the APIs or properties below.
+
+### APIs (9)
+
+- [Algebras AI Inc. Authentication API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-authentication-api/) — The Authentication API from Algebras AI Inc. — 1 operation(s) for authentication.
+- [Algebras AI Inc. Common API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-common-api/) — The Common API from Algebras AI Inc. — 1 operation(s) for common.
+- [Algebras AI Inc. Glossaries API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-glossaries-api/) — The Glossaries API from Algebras AI Inc. — 7 operation(s) for glossaries.
+- [Algebras AI Inc. Languages API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-languages-api/) — The Languages API from Algebras AI Inc. — 2 operation(s) for languages.
+- [Algebras AI Inc. Localization API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-localization-api/) — The Localization API from Algebras AI Inc. — 3 operation(s) for localization.
+- [Algebras AI Inc. Realtime API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-realtime-api/) — The Realtime API from Algebras AI Inc. — 11 operation(s) for realtime.
+- [Algebras AI Inc. Storage API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-storage-api/) — The Storage API from Algebras AI Inc. — 1 operation(s) for storage.
+- [Algebras AI Inc. Translation API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-translation-api/) — The Translation API from Algebras AI Inc. — 6 operation(s) for translation.
+- [Algebras AI Inc. Video API](https://apis.io/apis/algebras-ai-inc/algebras-ai-inc-video-api/) — The Video API from Algebras AI Inc. — 2 operation(s) for video.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [algebras](https://apis.io/servers/algebras-ai-inc/algebras/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Algebras Ai Inc Agentic Access](https://apis.io/agentic-access/algebras-ai-inc/algebras-ai-inc-agentic-access/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Algebras Authentication API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-authentication-api/)
+- [Algebras Authentication Common API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-common-api/)
+- [Algebras Authentication Glossaries API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-glossaries-api/)
+- [Algebras Authentication Languages API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-languages-api/)
+- [Algebras Authentication Localization API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-localization-api/)
+- [Algebras Authentication Realtime API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-realtime-api/)
+- [Algebras Authentication Storage API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-storage-api/)
+- [Algebras Authentication Translation API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-translation-api/)
+- [Algebras Authentication Video API](https://apis.io/collections/algebras-ai-inc/open-algebras-ai-inc-video-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Algebras Ai Inc Openapi Overlay](https://apis.io/overlays/algebras-ai-inc/algebras-ai-inc-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Algebras Ai Inc Authentication](https://apis.io/security/algebras-ai-inc/algebras-ai-inc-authentication/)
+- [Algebras Ai Inc Domain Security](https://apis.io/security/algebras-ai-inc/algebras-ai-inc-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Algebras Ai Inc Plans Pricing](https://apis.io/plans/algebras-ai-inc/algebras-ai-inc-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://algebras.ai)
+- [Documentation](https://docs.algebras.ai)
+- [Getting started](https://docs.algebras.ai/general/getting-started/)
+- [API reference](https://platform.algebras.ai/api/v1)
+- [Pricing](https://algebras.ai/pricing)
+- [Sign up](https://platform.algebras.ai/signup)
+- [Blog](https://algebras.ai/blog)
+- [Privacy policy](https://algebras.ai/privacy-policy)
+- [GitHub](https://github.com/algebras-ai)
+- [Status](https://status.algebras.ai)
+
+## API Evangelist rating
+
+**Kin Score 46.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 48.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 59.2 |
+
+**Agent readiness 35.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 19.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/algebras-ai-inc/](https://apis.io/providers/algebras-ai-inc/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Algebras AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/algebras-ai-inc/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
